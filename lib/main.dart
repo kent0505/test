@@ -7,7 +7,7 @@ import 'core/config/themes.dart';
 import 'core/db/db.dart';
 import 'core/utils.dart';
 import 'features/home/bloc/home_bloc.dart';
-import 'features/splash/bloc/internet_bloc.dart';
+import 'core/widgets/internet/bloc/internet_bloc.dart';
 
 void main() async {
   await initHive();

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-import '../../../core/utils.dart';
+import '../../../utils.dart';
 
 part 'internet_event.dart';
 part 'internet_state.dart';
