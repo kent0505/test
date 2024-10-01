@@ -4,7 +4,7 @@ import '../models/test_model.dart';
 import '../utils.dart';
 
 class DB {
-  static String boxName = 'soccerbox';
+  static String boxName = 'shablonbox';
   static String keyName = 'modelsList';
   static List<TestModel> modelsList = [];
 }

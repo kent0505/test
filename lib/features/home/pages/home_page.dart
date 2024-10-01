@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/utils.dart';
 import '../../../core/widgets/custom_scaffold.dart';
 import '../../../core/widgets/texts/text_r.dart';
+import '../../../core/widgets/texts/text_stroke.dart';
 import '../bloc/home_bloc.dart';
 import '../widgets/nav_bar.dart';
 import 'settings_page.dart';
@@ -88,6 +89,7 @@ class _HomeState extends State<_Home> with SingleTickerProviderStateMixin {
                 children: [
                   TextM('Aaa', fontSize: 16),
                   TextM('Bbb', fontSize: 16),
+                  TextStroke('Aaa'),
                 ],
               ),
               Column(

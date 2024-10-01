@@ -80,7 +80,7 @@ class _TxtFieldState extends State<TxtField> {
     return Container(
       height: _height(),
       decoration: BoxDecoration(
-        color: AppColors.textfield,
+        color: AppColors.black40,
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextField(

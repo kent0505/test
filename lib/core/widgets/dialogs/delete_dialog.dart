@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../config/app_colors.dart';
+import '../buttons/cuper_button.dart';
 import '../texts/text_r.dart';
 
 class DeleteDialog extends StatelessWidget {
@@ -67,8 +67,8 @@ class _Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoButton(
-      padding: EdgeInsets.zero,
+    return CuperButton(
+      padding: 0,
       onPressed: onPressed,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

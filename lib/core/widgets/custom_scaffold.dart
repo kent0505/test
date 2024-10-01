@@ -22,8 +22,8 @@ class CustomScaffold extends StatelessWidget {
               children: [
                 // bg
                 Container(
-                  decoration: const BoxDecoration(
-                    color: AppColors.bg,
+                  decoration: BoxDecoration(
+                    color: AppColors.black50,
                     // gradient: LinearGradient(
                     //   begin: Alignment.topCenter,
                     //   end: Alignment.bottomCenter,
