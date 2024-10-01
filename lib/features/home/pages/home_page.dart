@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shablon/core/utils.dart';
 
+import '../../../core/widgets/buttons/primary_button.dart';
 import '../../../core/widgets/custom_scaffold.dart';
+import '../../../core/widgets/dialogs/no_internet.dart';
 import '../../../core/widgets/others/tab_widget.dart';
 import '../../../core/widgets/texts/text_r.dart';
+import '../../splash/bloc/internet_bloc.dart';
 import '../bloc/home_bloc.dart';
 import '../widgets/nav_bar.dart';
 import 'settings_page.dart';
@@ -14,19 +19,37 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      body: Stack(
-        children: [
-          BlocBuilder<HomeBloc, HomeState>(
-            builder: (context, state) {
-              if (state is HomeSettings) return const SettingsPage();
+      body: BlocListener<InternetBloc, InternetState>(
+        listener: (context, state) {
+          logger(state);
+          if (state is InternetFailure) {
+            showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (context) {
+                return const NoInternet();
+              },
+            );
+          }
 
-              if (state is HomeActivities) return const Text('Actives');
+          if (state is InternetSuccess && state.dialog) {
+            context.pop();
+          }
+        },
+        child: Stack(
+          children: [
+            BlocBuilder<HomeBloc, HomeState>(
+              builder: (context, state) {
+                if (state is HomeSettings) return const SettingsPage();
 
-              return const _Home();
-            },
-          ),
-          const NavBar(),
-        ],
+                if (state is HomeActivities) return const Text('Actives');
+
+                return const _Home();
+              },
+            ),
+            const NavBar(),
+          ],
+        ),
       ),
     );
   }
@@ -37,15 +60,21 @@ class _Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const TabWidget(
+    return TabWidget(
       title1: 'Aaa',
       title2: 'Bbb',
       first: Column(
         children: [
-          TextM('Aaaa', fontSize: 20),
+          const TextM('Aaaa', fontSize: 20),
+          PrimaryButton(
+            onPressed: () {
+              context.push('/home/test');
+            },
+            title: 'Test',
+          ),
         ],
       ),
-      second: Column(
+      second: const Column(
         children: [
           TextM('Bbbb', fontSize: 20),
         ],

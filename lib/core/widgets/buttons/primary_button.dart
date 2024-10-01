@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../../config/app_colors.dart';
 import '../texts/text_r.dart';
-import 'cuper_button.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
@@ -27,9 +26,9 @@ class PrimaryButton extends StatelessWidget {
         color: AppColors.main,
         borderRadius: BorderRadius.circular(8),
       ),
-      child: CuperButton(
+      child: CupertinoButton(
         onPressed: active ? onPressed : null,
-        padding: 0,
+        padding: EdgeInsets.zero,
         child: Center(
           child: TextM(
             title,
