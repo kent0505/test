@@ -1,7 +1,28 @@
 WidgetsFlutterBinding.ensureInitialized();
 
 
+
 context.read<>().add();
+
+
+
+gradient: LinearGradient(
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+  colors: [
+    Color(0xff072434),
+    Color(0xff0D0819),
+  ],
+),
+boxShadow: [
+  BoxShadow(
+    color: AppColors.main,
+    blurRadius: 10,
+    spreadRadius: 0,
+    offset: Offset(4, 0),
+  )
+],
+
 
 
 flutter build apk --split-per-abi

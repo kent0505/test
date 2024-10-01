@@ -77,12 +77,10 @@ void logger(Object message) {
   }
 }
 
-void precacheImages(
-  BuildContext context, {
-  bool second = false,
-}) {
+void precacheImages(BuildContext context) {
   List<String> imageAssets = [
-    'assets/.png',
+    'assets/test.jpg',
+    // 'assets/.png',
   ];
   try {
     for (String assets in imageAssets) {
