@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../../config/app_colors.dart';
 import '../texts/text_r.dart';
