@@ -157,3 +157,108 @@ on<DeleteTestEvent>((event, emit) async {
   await updateModels();
   emit(TestLoadedState(models: DB.modelsList));
 });
+
+
+class TestRepository {
+  late Dio _dio;
+
+  TestRepository() {
+    final options = BaseOptions(
+      // headers: {
+      //   'Content-Type': 'application/json',
+      //   'Authorization': 'Bearer $token',
+      // },
+      receiveDataWhenStatusError: true,
+      connectTimeout: const Duration(seconds: 5),
+      receiveTimeout: const Duration(seconds: 5),
+    );
+
+    _dio = Dio(options);
+  }
+
+  Future<List<Album>> fetchAlbums(String endpoint) async {
+    try {
+      final response = await _dio.get(endpoint);
+      if (response.statusCode == 200) {
+        final List result = response.data;
+        final albums = result.map((item) {
+          return Album.fromJson(item);
+        }).toList();
+        return albums;
+      } else {
+        return [];
+      }
+    } catch (e) {
+      return [];
+    }
+  }
+
+  Future<int?> addCategory(CategoryModel category) async {
+    try {
+      final response = await _dio.post(
+        '',
+        data: {
+          'title': category.title.trim(),
+          'index': int.parse(category.index),
+          'type': int.parse(category.type),
+        },
+      );
+      return response.statusCode!;
+    } on DioException catch (e) {
+      return e.response!.statusCode;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Future<int?> updateCategory(CategoryModel category) async {
+    try {
+      final response = await _dio.put(
+        '',
+        data: {
+          'id': category.id,
+          'title': category.title.trim(),
+          'index': int.parse(category.index),
+          'type': int.parse(category.type),
+        },
+      );
+      return response.statusCode!;
+    } on DioException catch (e) {
+      return e.response!.statusCode;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Future<int?> deleteCategory(int id) async {
+    try {
+      final response = await _dio.delete('${''}$id');
+      return response.statusCode!;
+    } on DioException catch (e) {
+      return e.response!.statusCode;
+    } catch (e) {
+      return null;
+    }
+  }
+}
+
+
+class Album {
+  final int userId;
+  final int id;
+  final String title;
+
+  Album({
+    required this.userId,
+    required this.id,
+    required this.title,
+  });
+
+  factory Album.fromJson(Map<String, dynamic> json) {
+    return Album(
+      userId: json['userId'],
+      id: json['id'],
+      title: json['title'],
+    );
+  }
+}
