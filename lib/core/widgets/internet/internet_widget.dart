@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'bloc/internet_bloc.dart';
+import 'no_internet_dialog.dart';
 import '../../utils.dart';
-import '../dialogs/no_internet.dart';
 
 class InternetWidget extends StatelessWidget {
   const InternetWidget({
@@ -24,7 +24,7 @@ class InternetWidget extends StatelessWidget {
             context: context,
             barrierDismissible: false,
             builder: (context) {
-              return const NoInternet();
+              return const NoInternetDialog();
             },
           );
         }

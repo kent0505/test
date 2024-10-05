@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../config/app_colors.dart';
 import '../texts/text_r.dart';
 
-class NoInternet extends StatelessWidget {
-  const NoInternet({super.key});
+class NoInternetDialog extends StatelessWidget {
+  const NoInternetDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
