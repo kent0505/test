@@ -32,7 +32,7 @@ class ImageWidget extends StatelessWidget {
       child: Container(
         width: width,
         height: height,
-        decoration: const BoxDecoration(color: AppColors.main),
+        decoration: const BoxDecoration(color: AppColors.white),
         child: Image.file(
           File(image),
           fit: BoxFit.cover,
@@ -46,7 +46,6 @@ class ImageWidget extends StatelessWidget {
                 width: width,
                 height: height,
                 errorWidget: (context, url, error) {
-                  logger('IMAGE URL NOT FOUND');
                   logger(error);
                   return const NoData();
                 },
@@ -58,7 +57,6 @@ class ImageWidget extends StatelessWidget {
                 width: width,
                 height: height,
                 errorBuilder: (context, error, stackTrace) {
-                  logger('IMAGE ASSET NOT FOUND');
                   logger(error);
                   if (errorImageAsset.isEmpty) return const NoData();
                   return Image.asset(
@@ -67,7 +65,6 @@ class ImageWidget extends StatelessWidget {
                     width: width,
                     height: height,
                     errorBuilder: (context, error, stackTrace) {
-                      logger('ERROR IMAGE ASSET NOT FOUND');
                       logger(error);
                       return const NoData();
                     },
