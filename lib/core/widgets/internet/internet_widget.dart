@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 
 import 'bloc/internet_bloc.dart';
 import 'no_internet_dialog.dart';
-import '../../utils.dart';
 
 class InternetWidget extends StatelessWidget {
   const InternetWidget({
@@ -18,7 +17,6 @@ class InternetWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<InternetBloc, InternetState>(
       listener: (context, state) {
-        logger(state);
         if (state is InternetFailure) {
           showDialog(
             context: context,
