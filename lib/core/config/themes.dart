@@ -13,7 +13,7 @@ final theme = ThemeData(
     selectionHandleColor: AppColors.main,
   ),
   colorScheme: ColorScheme.fromSwatch(
-    accentColor: AppColors.main,
+    accentColor: AppColors.main, // overscroll indicator color
   ),
   dialogTheme: const DialogTheme(
     // insetPadding: EdgeInsets.symmetric(horizontal: 20),
