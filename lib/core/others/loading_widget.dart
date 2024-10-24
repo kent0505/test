@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../config/app_colors.dart';
-import '../texts/text_r.dart';
+import '../config/app_colors.dart';
+import '../widgets/texts/text_r.dart';
 
 class LoadingWidget extends StatefulWidget {
   const LoadingWidget({

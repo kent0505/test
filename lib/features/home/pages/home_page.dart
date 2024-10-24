@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/widgets/buttons/primary_button.dart';
 import '../../../core/widgets/custom_scaffold.dart';
-import '../../../core/widgets/internet/internet_widget.dart';
-import '../../../core/widgets/others/tab_widget.dart';
+import '../../../core/others/internet/internet_widget.dart';
+import '../../../core/others/tab_widget.dart';
 import '../../../core/widgets/texts/text_r.dart';
 import '../bloc/home_bloc.dart';
 import '../widgets/nav_bar.dart';

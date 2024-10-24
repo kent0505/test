@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../config/app_colors.dart';
-import '../texts/text_r.dart';
+import '../../widgets/texts/text_r.dart';
 
 class NoInternetDialog extends StatelessWidget {
   const NoInternetDialog({super.key});

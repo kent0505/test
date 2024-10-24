@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/config/app_colors.dart';
 import '../../core/db/prefs.dart';
 import '../../core/widgets/custom_scaffold.dart';
-import '../../core/widgets/others/loading_widget.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -13,8 +13,16 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  bool loading = false;
+
   void load() async {
     await getData().then((onboard) {
+      Future.delayed(Duration.zero, () {
+        setState(() {
+          loading = true;
+        });
+      });
+
       Future.delayed(const Duration(seconds: 2), () {
         if (mounted) {
           if (onboard) {
@@ -36,8 +44,35 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScaffold(
-      body: LoadingWidget(custom: true),
+    return CustomScaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Container(
+              height: 11,
+              width: 270,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(23),
+                color: AppColors.white50,
+              ),
+              child: Row(
+                children: [
+                  AnimatedContainer(
+                    duration: const Duration(seconds: 2),
+                    height: 11,
+                    width: loading ? 270 : 0,
+                    decoration: BoxDecoration(
+                      color: AppColors.main,
+                      borderRadius: BorderRadius.circular(19),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

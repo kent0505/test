@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/config/app_colors.dart';
-import '../../../core/utils.dart';
 import '../../../core/widgets/buttons/cuper_button.dart';
 import '../../../core/widgets/texts/text_r.dart';
 import '../bloc/home_bloc.dart';
@@ -16,7 +15,7 @@ class NavBar extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        height: navBarHeight,
+        height: 70,
         color: AppColors.main,
         alignment: Alignment.center,
         padding: const EdgeInsets.symmetric(horizontal: 30),

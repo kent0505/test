@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import '../../config/app_colors.dart';
-import '../../utils.dart';
+import '../config/app_colors.dart';
+import '../utils.dart';
 import 'no_data.dart';
 
 class ImageWidget extends StatelessWidget {
