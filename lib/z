@@ -46,11 +46,6 @@ flutter:
 WidgetsFlutterBinding.ensureInitialized();
 
 
-
-context.read<>().add();
-
-
-
 gradient: LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,

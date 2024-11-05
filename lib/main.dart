@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'core/db/db.dart';
-import 'core/utils.dart';
-import 'core/config/router.dart';
-import 'core/config/themes.dart';
-import 'core/others/http/bloc/http_bloc.dart';
-import 'core/others/internet/bloc/internet_bloc.dart';
-import 'features/home/bloc/home_bloc.dart';
+import 'src/core/db/db.dart';
+import 'src/core/others/button/bloc/button_bloc.dart';
+import 'src/core/utils.dart';
+import 'src/core/config/router.dart';
+import 'src/core/config/themes.dart';
+import 'src/core/others/album/bloc/album_bloc.dart';
+import 'src/core/others/internet/bloc/internet_bloc.dart';
+import 'src/features/home/bloc/home_bloc.dart';
 
-void main() async {
+Future<void> main() async {
   await initHive();
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => HomeBloc()),
         BlocProvider(create: (context) => InternetBloc()..add(CheckInternet())),
-        BlocProvider(create: (context) => HttpBloc()),
+        BlocProvider(create: (context) => ButtonBloc()),
+        BlocProvider(create: (context) => AlbumBloc()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
