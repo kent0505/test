@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'button_event.dart';
@@ -17,7 +17,9 @@ class ButtonBloc extends Bloc<ButtonEvent, ButtonState> {
     CheckButtonActive event,
     Emitter<ButtonState> emit,
   ) {
-    final isEmpty = event.controllers.any((controller) => controller.isEmpty);
+    final isEmpty = event.controllers.any(
+      (controller) => controller.text.isEmpty,
+    );
     emit(isEmpty ? ButtonInactive() : ButtonInitial());
   }
 }

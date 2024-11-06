@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 
+import '../others/album/albums_page.dart';
 import '../../features/home/pages/home_page.dart';
-import '../../features/home/pages/albums_page.dart';
 import '../../features/splash/onboard_page.dart';
 import '../../features/splash/splash_page.dart';
 

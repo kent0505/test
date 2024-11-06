@@ -22,7 +22,8 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ButtonBloc, ButtonState>(
       builder: (context, state) {
-        return Container(
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
           height: 50,
           width: width,
           decoration: BoxDecoration(

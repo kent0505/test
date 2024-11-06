@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/others/button/bloc/button_bloc.dart';
 import '../../../core/others/tab_widget.dart';
+import '../../../core/others/button/bloc/button_bloc.dart';
 import '../../../core/widgets/buttons/primary_button.dart';
 import '../../../core/widgets/textfields/txt_field.dart';
 import '../../../core/widgets/texts/text_widget.dart';
@@ -23,8 +23,8 @@ class MainPageState extends State<MainPage> {
     context.read<ButtonBloc>().add(
           CheckButtonActive(
             controllers: [
-              controller1.text,
-              controller2.text,
+              controller1,
+              controller2,
             ],
           ),
         );

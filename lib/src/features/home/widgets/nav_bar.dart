@@ -14,7 +14,8 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.bottomCenter,
-      child: Container(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
         height: 70,
         color: AppColors.main,
         alignment: Alignment.center,

@@ -2,21 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../../../core/widgets/texts/text_widget.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
-  @override
-  State<SettingsPage> createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return const Column(
       children: [
         TextWidget(
           'Settings',
-          fontSize: 16,
+          fontSize: 20,
         ),
       ],
     );
