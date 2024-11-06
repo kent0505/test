@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../config/app_colors.dart';
-import '../../others/button/bloc/button_bloc.dart';
+import '../../blocs/button/button_bloc.dart';
 import '../texts/text_widget.dart';
 
 class PrimaryButton extends StatelessWidget {

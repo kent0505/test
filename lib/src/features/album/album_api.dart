@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import '../../utils.dart';
+import '../../core/utils.dart';
 import 'album.dart';
 
 class AlbumApi {

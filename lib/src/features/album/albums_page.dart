@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'bloc/album_bloc.dart';
-import '../loading_widget.dart';
-import '../../widgets/custom_scaffold.dart';
-import '../../widgets/texts/text_widget.dart';
+import '../../core/blocs/album/album_bloc.dart';
+import '../../core/others/loading_widget.dart';
+import '../../core/widgets/custom_scaffold.dart';
+import '../../core/widgets/texts/text_widget.dart';
 
 class AlbumsPage extends StatefulWidget {
   const AlbumsPage({super.key});
