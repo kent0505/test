@@ -44,6 +44,10 @@ DateTime stringToDate(String date) {
   }
 }
 
+String formatNumber(int number) {
+  return NumberFormat('#,###').format(number);
+}
+
 double getStatusBar(BuildContext context) {
   return MediaQuery.of(context).viewPadding.top;
 }

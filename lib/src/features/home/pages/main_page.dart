@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shablon/src/core/utils.dart';
 
 import '../../../core/widgets/others/tab_widget.dart';
 import '../../../blocs/button/button_bloc.dart';
@@ -66,6 +67,10 @@ class MainPageState extends State<MainPage> {
               context.push('/albums');
             },
             title: 'Albums',
+          ),
+          TextWidget(
+            formatNumber(1000000),
+            fontSize: 20,
           ),
         ],
       ),
