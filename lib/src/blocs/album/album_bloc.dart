@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../features/album/album.dart';
-import '../../../features/album/album_api.dart';
+import '../../features/album/album.dart';
+import '../../features/album/album_api.dart';
 
 part 'album_event.dart';
 part 'album_state.dart';

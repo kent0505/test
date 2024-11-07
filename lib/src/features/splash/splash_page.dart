@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/db/db.dart';
 import '../../core/db/prefs.dart';
-import '../../core/others/loading_widget.dart';
+import '../../core/widgets/others/loading_widget.dart';
 import '../../core/widgets/custom_scaffold.dart';
 
 class SplashPage extends StatefulWidget {
@@ -16,11 +17,9 @@ class _SplashPageState extends State<SplashPage> {
   bool loading = false;
 
   void load() async {
-    await getData().then((onboard) {
-      Future.delayed(Duration.zero, () {
-        setState(() {
-          loading = true;
-        });
+    await initDB().then((value) {
+      setState(() {
+        loading = true;
       });
 
       Future.delayed(const Duration(seconds: 2), () {

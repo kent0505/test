@@ -2,16 +2,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../utils.dart';
 
-Future<bool> getData() async {
+bool onboard = true;
+
+Future<void> getData() async {
   try {
     final prefs = await SharedPreferences.getInstance();
     // await prefs.remove('onboard');
     // await prefs.clear();
-    bool onboard = prefs.getBool('onboard') ?? true;
-    return onboard;
+    onboard = prefs.getBool('onboard') ?? true;
   } catch (e) {
     logger(e);
-    return true;
   }
 }
 

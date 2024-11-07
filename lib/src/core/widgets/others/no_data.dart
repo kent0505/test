@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/texts/text_widget.dart';
+import '../texts/text_widget.dart';
 
 class NoData extends StatelessWidget {
   const NoData({

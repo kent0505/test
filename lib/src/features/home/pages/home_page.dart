@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/utils.dart';
 import '../../../core/widgets/custom_scaffold.dart';
-import '../../../core/others/internet/internet_widget.dart';
-import '../bloc/home_bloc.dart';
+import '../../../core/widgets/others/internet_widget.dart';
+import '../../../blocs/navbar/navbar_bloc.dart';
 import '../widgets/nav_bar.dart';
 import 'actives_page.dart';
 import 'main_page.dart';
@@ -19,14 +19,14 @@ class HomePage extends StatelessWidget {
       body: InternetWidget(
         child: Stack(
           children: [
-            BlocConsumer<HomeBloc, HomeState>(
+            BlocConsumer<NavbarBloc, NavbarState>(
               listener: (context, state) {
                 logger(state.runtimeType);
               },
               builder: (context, state) {
-                if (state is HomeActivities) return const ActivesPage();
+                if (state is NavbarActivities) return const ActivesPage();
 
-                if (state is HomeSettings) return const SettingsPage();
+                if (state is NavbarSettings) return const SettingsPage();
 
                 return const MainPage();
               },

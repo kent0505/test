@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../config/app_colors.dart';
-import '../../widgets/texts/text_widget.dart';
-import 'bloc/internet_bloc.dart';
+import '../texts/text_widget.dart';
+import '../../../blocs/internet/internet_bloc.dart';
 
 class NoInternetDialog extends StatelessWidget {
   const NoInternetDialog({super.key});

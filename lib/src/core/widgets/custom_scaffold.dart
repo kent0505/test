@@ -12,7 +12,7 @@ class CustomScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.black.withOpacity(0.4),
+      backgroundColor: Colors.grey,
       body: body,
       // body: Stack(
       //   children: [

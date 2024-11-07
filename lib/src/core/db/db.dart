@@ -2,14 +2,16 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import '../models/test_model.dart';
 import '../utils.dart';
+import 'prefs.dart';
 
 String boxName = 'shablonbox';
 String keyName = 'modelsList';
 List<TestModel> modelsList = [];
 
-Future<void> initHive() async {
+Future<void> initDB() async {
   try {
     await Hive.initFlutter();
+    await getData();
     // await Hive.deleteBoxFromDisk(DB.boxName);
     Hive.registerAdapter(TestModelAdapter());
   } catch (e) {

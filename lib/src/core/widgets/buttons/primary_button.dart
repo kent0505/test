@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../config/app_colors.dart';
-import '../../blocs/button/button_bloc.dart';
+import '../../../blocs/button/button_bloc.dart';
 import '../texts/text_widget.dart';
 
 class PrimaryButton extends StatelessWidget {
@@ -27,7 +27,7 @@ class PrimaryButton extends StatelessWidget {
           height: 50,
           width: width,
           decoration: BoxDecoration(
-            color: AppColors.main,
+            color: state is ButtonInitial ? AppColors.main : Colors.black,
             borderRadius: BorderRadius.circular(8),
           ),
           child: CupertinoButton(
