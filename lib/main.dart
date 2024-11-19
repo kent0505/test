@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'src/core/utils.dart';
 import 'src/core/config/router.dart';
 import 'src/core/config/themes.dart';
 import 'src/blocs/album/album_bloc.dart';
@@ -20,22 +19,13 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    precacheImages(context);
-  }
-
-  @override
   Widget build(BuildContext context) {
+    // precacheImages(context);
+
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AlbumBloc()),

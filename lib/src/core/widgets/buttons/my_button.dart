@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
-class CuperButton extends StatelessWidget {
-  const CuperButton({
+import '../../config/themes.dart';
+
+class MyButton extends StatelessWidget {
+  const MyButton({
     super.key,
     this.onPressed,
     this.padding = 0,
@@ -16,11 +18,14 @@ class CuperButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoButton(
-      onPressed: onPressed,
-      padding: EdgeInsets.all(padding),
-      minSize: minSize,
-      child: child,
+    return CupertinoTheme(
+      data: cupertinoTheme,
+      child: CupertinoButton(
+        onPressed: onPressed,
+        padding: EdgeInsets.all(padding),
+        minSize: minSize,
+        child: child,
+      ),
     );
   }
 }

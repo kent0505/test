@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../config/app_colors.dart';
-import '../texts/text_widget.dart';
-
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({super.key});
 
@@ -11,7 +8,8 @@ class LoadingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: CupertinoActivityIndicator(
-        color: AppColors.main,
+        color: Colors.white,
+        radius: 15,
       ),
     );
   }
@@ -42,7 +40,7 @@ class LoadingWidget2 extends StatelessWidget {
               height: 11,
               width: loading ? 270 : 0,
               decoration: BoxDecoration(
-                color: AppColors.main,
+                color: Colors.greenAccent,
                 borderRadius: BorderRadius.circular(19),
               ),
             ),
@@ -84,7 +82,7 @@ class _LoadingWidget3State extends State<LoadingWidget3>
     return Center(
       child: RotationTransition(
         turns: controller,
-        child: const TextWidget('Loading...', fontSize: 20),
+        child: const Text('Loading...'),
       ),
     );
   }

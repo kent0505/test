@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../config/app_colors.dart';
-import '../texts/text_widget.dart';
 import '../../../blocs/internet/internet_bloc.dart';
 
 class NoInternetDialog extends StatelessWidget {
@@ -16,13 +14,12 @@ class NoInternetDialog extends StatelessWidget {
         if (state is InternetSuccess) context.pop();
       },
       child: const Dialog(
-        backgroundColor: AppColors.main,
+        backgroundColor: Colors.greenAccent,
         child: SizedBox(
           height: 150,
           child: Center(
-            child: TextWidget(
+            child: Text(
               'No Internet',
-              fontSize: 20,
             ),
           ),
         ),

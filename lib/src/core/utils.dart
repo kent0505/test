@@ -3,9 +3,7 @@ import 'dart:developer' as developer;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-int getCurrentTimestamp() {
-  return DateTime.now().millisecondsSinceEpoch ~/ 1000;
-}
+int getTimestamp() => DateTime.now().millisecondsSinceEpoch ~/ 1000;
 
 String timestampToString(int timestamp) {
   // timestamp to 22.06.2000
@@ -44,37 +42,19 @@ DateTime stringToDate(String date) {
   }
 }
 
-String formatNumber(int number) {
-  return NumberFormat('#,###').format(number);
-}
+String formatNumber(int number) => NumberFormat('#,###').format(number);
 
-double getStatusBar(BuildContext context) {
-  return MediaQuery.of(context).viewPadding.top;
-}
+double getStatusBar(BuildContext context) =>
+    MediaQuery.of(context).viewPadding.top;
+double getBottom(BuildContext context) =>
+    MediaQuery.of(context).viewPadding.bottom;
+double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
+double getHeight(BuildContext context) => MediaQuery.of(context).size.height;
 
-double getBottom(BuildContext context) {
-  return MediaQuery.of(context).viewPadding.bottom;
-}
-
-double getWidth(BuildContext context) {
-  return MediaQuery.of(context).size.width;
-}
-
-double getHeight(BuildContext context) {
-  return MediaQuery.of(context).size.height;
-}
-
-void logger(Object message) {
-  try {
-    developer.log(message.toString());
-  } catch (e) {
-    debugPrint(e.toString());
-  }
-}
+void logger(Object message) => developer.log(message.toString());
 
 void precacheImages(BuildContext context) {
   List<String> imageAssets = [
-    'assets/test.jpg',
     // 'assets/.png',
   ];
   try {

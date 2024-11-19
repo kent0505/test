@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../blocs/album/album_bloc.dart';
 import '../../core/widgets/others/loading_widget.dart';
 import '../../core/widgets/custom_scaffold.dart';
-import '../../core/widgets/texts/text_widget.dart';
 
 class AlbumsPage extends StatefulWidget {
   const AlbumsPage({super.key});
@@ -45,10 +44,8 @@ class _AlbumsPageState extends State<AlbumsPage> {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: TextWidget(
+                  child: Text(
                     state.albums[index].title,
-                    fontSize: 12,
-                    maxLines: 2,
                   ),
                 );
               },

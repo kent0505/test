@@ -17,14 +17,8 @@ class NavbarBloc extends Bloc<NavbarEvent, NavbarState> {
     ChangePageEvent event,
     Emitter<NavbarState> emit,
   ) {
-    if (event.index == 0 && state is! NavbarInitial) {
-      emit(NavbarInitial());
-    }
-    if (event.index == 1 && state is! NavbarActivities) {
-      emit(NavbarActivities());
-    }
-    if (event.index == 2 && state is! NavbarSettings) {
-      emit(NavbarSettings());
-    }
+    if (event.index == 1) emit(NavbarInitial());
+    if (event.index == 2) emit(NavbarActivities());
+    if (event.index == 3) emit(NavbarSettings());
   }
 }

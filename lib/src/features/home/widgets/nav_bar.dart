@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/config/app_colors.dart';
+import '../../../core/config/fonts.dart';
 import '../../../core/widgets/others/svg_widget.dart';
-import '../../../core/widgets/buttons/cuper_button.dart';
-import '../../../core/widgets/texts/text_widget.dart';
+import '../../../core/widgets/buttons/my_button.dart';
 import '../../../blocs/navbar/navbar_bloc.dart';
 
 class NavBar extends StatelessWidget {
@@ -14,12 +13,12 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.bottomCenter,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
+      child: Container(
         height: 70,
-        color: AppColors.main,
-        alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        decoration: const BoxDecoration(
+          color: Colors.greenAccent,
+        ),
         child: BlocBuilder<NavbarBloc, NavbarState>(
           builder: (context, state) {
             return Row(
@@ -27,28 +26,19 @@ class NavBar extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _NavBarButton(
+                  id: 1,
                   title: 'Home',
-                  asset: 'tab1',
                   active: state is NavbarInitial,
-                  onPressed: () {
-                    context.read<NavbarBloc>().add(ChangePageEvent(index: 0));
-                  },
                 ),
                 _NavBarButton(
+                  id: 1,
                   title: 'Actives',
-                  asset: 'tab1',
                   active: state is NavbarActivities,
-                  onPressed: () {
-                    context.read<NavbarBloc>().add(ChangePageEvent(index: 1));
-                  },
                 ),
                 _NavBarButton(
+                  id: 1,
                   title: 'Settings',
-                  asset: 'tab1',
                   active: state is NavbarSettings,
-                  onPressed: () {
-                    context.read<NavbarBloc>().add(ChangePageEvent(index: 2));
-                  },
                 ),
               ],
             );
@@ -61,35 +51,38 @@ class NavBar extends StatelessWidget {
 
 class _NavBarButton extends StatelessWidget {
   const _NavBarButton({
+    required this.id,
     required this.title,
-    required this.asset,
     required this.active,
-    required this.onPressed,
   });
 
+  final int id;
   final String title;
-  final String asset;
   final bool active;
-  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return CuperButton(
-      onPressed: onPressed,
+    return MyButton(
+      onPressed: active
+          ? null
+          : () {
+              context.read<NavbarBloc>().add(ChangePageEvent(index: id));
+            },
       padding: 0,
       child: SizedBox(
         width: 62,
         child: Column(
           children: [
             const SizedBox(height: 14),
-            SvgWidget(
-              'assets/$asset.svg',
-              color: active ? null : Colors.white.withOpacity(0.5),
-            ),
-            const SizedBox(height: 3),
-            TextWidget(
+            SvgWidget('assets/tab$id.svg'),
+            const SizedBox(height: 4),
+            Text(
               title,
-              fontSize: 10,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 12,
+                fontFamily: Fonts.w500,
+              ),
             ),
           ],
         ),

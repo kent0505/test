@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shablon/src/core/utils.dart';
 
+import '../../../core/utils.dart';
 import '../../../core/widgets/others/tab_widget.dart';
 import '../../../blocs/button/button_bloc.dart';
-import '../../../core/widgets/buttons/primary_button.dart';
+import '../../../core/widgets/buttons/main_button.dart';
 import '../../../core/widgets/textfields/txt_field.dart';
-import '../../../core/widgets/texts/text_widget.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -24,8 +23,8 @@ class MainPageState extends State<MainPage> {
     context.read<ButtonBloc>().add(
           CheckButtonActive(
             controllers: [
-              controller1,
-              controller2,
+              controller1.text,
+              controller2.text,
             ],
           ),
         );
@@ -51,7 +50,9 @@ class MainPageState extends State<MainPage> {
       title2: 'Bbb',
       first: Column(
         children: [
-          const TextWidget('Aaaa', fontSize: 20),
+          const Text(
+            'Aaaa',
+          ),
           TxtField(
             controller: controller1,
             hintText: 'Aaa',
@@ -62,21 +63,22 @@ class MainPageState extends State<MainPage> {
             hintText: 'Bbb',
             onChanged: checkActive,
           ),
-          PrimaryButton(
+          MainButton(
             onPressed: () {
               context.push('/albums');
             },
             title: 'Albums',
           ),
-          TextWidget(
+          Text(
             formatNumber(1000000),
-            fontSize: 20,
           ),
         ],
       ),
       second: const Column(
         children: [
-          TextWidget('Bbbb', fontSize: 20),
+          Text(
+            'Bbbb',
+          ),
         ],
       ),
     );

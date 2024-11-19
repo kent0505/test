@@ -31,8 +31,8 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     AddTestEvent event,
     Emitter<TestState> emit,
   ) async {
-    // modelsList.insert(0, event.model);
-    modelsList.add(event.model);
+    modelsList.insert(0, event.model);
+    // modelsList.add(event.model);
     await updateModels();
     emit(TestLoadedState(models: modelsList));
   }
@@ -42,7 +42,7 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     Emitter<TestState> emit,
   ) async {
     for (TestModel model in modelsList) {
-      if (identical(model, event.model)) {
+      if (identical(model.id, event.model.id)) {
         model.title = event.model.title;
       }
     }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../config/app_colors.dart';
+import '../../config/fonts.dart';
 
 class TextStroke extends StatelessWidget {
   const TextStroke(
@@ -8,8 +8,8 @@ class TextStroke extends StatelessWidget {
     super.key,
     this.fontSize = 20,
     this.strokeWidth = 6,
-    this.fontFamily = Fonts.bold,
-    this.borderColor = AppColors.main,
+    this.fontFamily = Fonts.w700,
+    this.borderColor = Colors.greenAccent,
     this.textColor = Colors.white,
   });
 

@@ -1,20 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'app_colors.dart';
+import 'fonts.dart';
 
 final theme = ThemeData(
   useMaterial3: false,
   primarySwatch: Colors.grey,
-  fontFamily: Fonts.regular,
-  textSelectionTheme: const TextSelectionThemeData(
-    cursorColor: AppColors.main,
-    selectionColor: AppColors.main,
-    selectionHandleColor: AppColors.main,
-  ),
-  colorScheme: ColorScheme.fromSwatch(
-    accentColor: AppColors.main, // overscroll indicator color
-  ),
+  fontFamily: Fonts.w400,
+  // textSelectionTheme: const TextSelectionThemeData(
+  //   cursorColor: AppColors.main,
+  //   selectionColor: AppColors.main,
+  //   selectionHandleColor: AppColors.main,
+  // ),
+  // colorScheme: ColorScheme.fromSwatch(
+  //   accentColor: AppColors.main, // overscroll indicator color
+  // ),
   dialogTheme: const DialogTheme(
     // insetPadding: EdgeInsets.symmetric(horizontal: 20),
     shape: RoundedRectangleBorder(
@@ -26,13 +26,13 @@ final theme = ThemeData(
 const cupertinoTheme = CupertinoThemeData(
   textTheme: CupertinoTextThemeData(
     textStyle: TextStyle(
-      fontFamily: Fonts.regular,
+      fontFamily: Fonts.w400,
       color: Colors.black,
     ),
     dateTimePickerTextStyle: TextStyle(
       color: Colors.white,
       fontSize: 24,
-      fontFamily: Fonts.medium,
+      fontFamily: Fonts.w400,
     ),
   ),
 );

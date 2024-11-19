@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/db/prefs.dart';
-import '../../core/widgets/buttons/primary_button.dart';
+import '../../core/widgets/buttons/main_button.dart';
 import '../../core/widgets/custom_scaffold.dart';
 
 class OnboardPage extends StatefulWidget {
@@ -13,12 +13,28 @@ class OnboardPage extends StatefulWidget {
 }
 
 class _OnboardPageState extends State<OnboardPage> {
-  void goHome() async {
-    await saveOnboard().then((value) {
-      if (mounted) {
-        context.go('/home');
-      }
-    });
+  int index = 1;
+
+  String getTitle() {
+    if (index == 1) return '';
+    return '';
+  }
+
+  String getDescription() {
+    if (index == 1) return '';
+    return '';
+  }
+
+  void onNext() async {
+    if (index == 2) {
+      await saveOnboard();
+
+      if (mounted) context.go('/home');
+    } else {
+      setState(() {
+        index++;
+      });
+    }
   }
 
   @override
@@ -27,9 +43,15 @@ class _OnboardPageState extends State<OnboardPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          PrimaryButton(
+          Text(
+            getTitle(),
+          ),
+          Text(
+            getDescription(),
+          ),
+          MainButton(
             title: 'Go Home',
-            onPressed: goHome,
+            onPressed: onNext,
           ),
         ],
       ),

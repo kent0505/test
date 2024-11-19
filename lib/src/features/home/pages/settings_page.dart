@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/texts/text_widget.dart';
-
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
@@ -9,9 +7,8 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        TextWidget(
+        Text(
           'Settings',
-          fontSize: 20,
         ),
       ],
     );

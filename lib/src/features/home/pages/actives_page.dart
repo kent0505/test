@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/texts/text_widget.dart';
-
 class ActivesPage extends StatelessWidget {
   const ActivesPage({super.key});
 
@@ -9,9 +7,8 @@ class ActivesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        TextWidget(
+        Text(
           'Actives',
-          fontSize: 20,
         ),
       ],
     );

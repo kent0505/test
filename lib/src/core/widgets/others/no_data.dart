@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../texts/text_widget.dart';
-
 class NoData extends StatelessWidget {
   const NoData({
     super.key,
@@ -15,16 +13,14 @@ class NoData extends StatelessWidget {
     return expanded
         ? const Expanded(
             child: Center(
-              child: TextWidget(
+              child: Text(
                 'No data',
-                fontSize: 14,
               ),
             ),
           )
         : const Center(
-            child: TextWidget(
+            child: Text(
               'No data',
-              fontSize: 14,
             ),
           );
   }
