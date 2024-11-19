@@ -1,30 +1,27 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../config/fonts.dart';
-import '../../config/themes.dart';
-import '../../utils.dart';
 
 class TxtField extends StatefulWidget {
   const TxtField({
     super.key,
     required this.controller,
     required this.hintText,
-    this.multiline = false,
     this.number = false,
-    this.datePicker = false,
-    this.timePicker = false,
+    // this.multiline = false,
+    // this.datePicker = false,
+    // this.timePicker = false,
     this.length = 20,
     required this.onChanged,
   });
 
   final TextEditingController controller;
   final String hintText;
-  final bool multiline;
   final bool number;
-  final bool datePicker;
-  final bool timePicker;
+  // final bool multiline;
+  // final bool datePicker;
+  // final bool timePicker;
   final int length;
   final void Function() onChanged;
 
@@ -33,62 +30,63 @@ class TxtField extends StatefulWidget {
 }
 
 class _TxtFieldState extends State<TxtField> {
-  double _height() {
-    if (widget.multiline) return 120;
-    return 60;
-  }
+  // double _height() {
+  //   if (widget.multiline) return 120;
+  //   return 60;
+  // }
 
-  int? _maxLines() {
-    if (widget.multiline) return null;
-    return 1;
-  }
+  // int? _maxLines() {
+  //   if (widget.multiline) return null;
+  //   return 1;
+  // }
 
-  TextInputType? _keyboardType() {
-    if (widget.multiline) return TextInputType.multiline;
+  // bool _readOnly() {
+  //   if (widget.datePicker || widget.timePicker) return true;
+  //   return false;
+  // }
+
+  TextInputType? keyboardType() {
+    // if (widget.multiline) return TextInputType.multiline;
     if (widget.number) return TextInputType.number;
     return null;
   }
 
-  bool _readOnly() {
-    if (widget.datePicker || widget.timePicker) return true;
-    return false;
-  }
-
-  List<TextInputFormatter>? _inputFormatters() {
+  List<TextInputFormatter>? inputFormatters() {
     final length = LengthLimitingTextInputFormatter(widget.length);
     final digit = FilteringTextInputFormatter.digitsOnly;
     if (widget.number) return [length, digit];
     return [length];
   }
 
-  void onDateTimeChanged(DateTime date) {
-    setState(() {
-      widget.controller.text = dateToString(date);
-    });
-    widget.onChanged();
-  }
+  // void onDateTimeChanged(DateTime date) {
+  //   setState(() {
+  //     widget.controller.text = dateToString(date);
+  //   });
+  //   widget.onChanged();
+  // }
 
-  void onTimeChanged(DateTime date) {
-    setState(() {
-      widget.controller.text = timeToString(date);
-    });
-    widget.onChanged();
-  }
+  // void onTimeChanged(DateTime date) {
+  //   setState(() {
+  //     widget.controller.text = timeToString(date);
+  //   });
+  //   widget.onChanged();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: _height(),
+      // height: _height(),
+      height: 50,
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.4),
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextField(
         controller: widget.controller,
-        keyboardType: _keyboardType(),
-        maxLines: _maxLines(),
-        inputFormatters: _inputFormatters(),
-        readOnly: _readOnly(),
+        keyboardType: keyboardType(),
+        // maxLines: _maxLines(),
+        inputFormatters: inputFormatters(),
+        // readOnly: _readOnly(),
         textCapitalization: TextCapitalization.sentences,
         style: const TextStyle(
           color: Colors.white,
@@ -117,58 +115,58 @@ class _TxtFieldState extends State<TxtField> {
         onChanged: (value) {
           widget.onChanged();
         },
-        onTap: () async {
-          if (widget.datePicker) {
-            await showCupertinoModalPopup(
-              context: context,
-              builder: (context) {
-                return Container(
-                  height: 240,
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.5),
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(8),
-                    ),
-                  ),
-                  child: CupertinoTheme(
-                    data: cupertinoTheme,
-                    child: CupertinoDatePicker(
-                      onDateTimeChanged: onDateTimeChanged,
-                      initialDateTime: stringToDate(widget.controller.text),
-                      mode: CupertinoDatePickerMode.date,
-                      minimumYear: 1950,
-                      maximumYear: DateTime.now().year + 1,
-                    ),
-                  ),
-                );
-              },
-            );
-          } else if (widget.timePicker) {
-            await showCupertinoModalPopup(
-              context: context,
-              builder: (context) {
-                return Container(
-                  height: 240,
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.5),
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(8),
-                    ),
-                  ),
-                  child: CupertinoTheme(
-                    data: cupertinoTheme,
-                    child: CupertinoDatePicker(
-                      onDateTimeChanged: onTimeChanged,
-                      initialDateTime: stringToDate(widget.controller.text),
-                      mode: CupertinoDatePickerMode.time,
-                      use24hFormat: true,
-                    ),
-                  ),
-                );
-              },
-            );
-          }
-        },
+        // onTap: () async {
+        //   if (widget.datePicker) {
+        //     await showCupertinoModalPopup(
+        //       context: context,
+        //       builder: (context) {
+        //         return Container(
+        //           height: 240,
+        //           decoration: BoxDecoration(
+        //             color: Colors.white.withOpacity(0.5),
+        //             borderRadius: const BorderRadius.vertical(
+        //               top: Radius.circular(8),
+        //             ),
+        //           ),
+        //           child: CupertinoTheme(
+        //             data: cupertinoTheme,
+        //             child: CupertinoDatePicker(
+        //               onDateTimeChanged: onDateTimeChanged,
+        //               initialDateTime: stringToDate(widget.controller.text),
+        //               mode: CupertinoDatePickerMode.date,
+        //               minimumYear: 1950,
+        //               maximumYear: DateTime.now().year + 1,
+        //             ),
+        //           ),
+        //         );
+        //       },
+        //     );
+        //   } else if (widget.timePicker) {
+        //     await showCupertinoModalPopup(
+        //       context: context,
+        //       builder: (context) {
+        //         return Container(
+        //           height: 240,
+        //           decoration: BoxDecoration(
+        //             color: Colors.white.withOpacity(0.5),
+        //             borderRadius: const BorderRadius.vertical(
+        //               top: Radius.circular(8),
+        //             ),
+        //           ),
+        //           child: CupertinoTheme(
+        //             data: cupertinoTheme,
+        //             child: CupertinoDatePicker(
+        //               onDateTimeChanged: onTimeChanged,
+        //               initialDateTime: stringToDate(widget.controller.text),
+        //               mode: CupertinoDatePickerMode.time,
+        //               use24hFormat: true,
+        //             ),
+        //           ),
+        //         );
+        //       },
+        //     );
+        //   }
+        // },
       ),
     );
   }

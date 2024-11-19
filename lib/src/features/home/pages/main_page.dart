@@ -46,41 +46,49 @@ class MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return TabWidget(
-      title1: 'Aaa',
-      title2: 'Bbb',
-      first: Column(
-        children: [
-          const Text(
-            'Aaaa',
-          ),
-          TxtField(
-            controller: controller1,
-            hintText: 'Aaa',
-            onChanged: checkActive,
-          ),
-          TxtField(
-            controller: controller2,
-            hintText: 'Bbb',
-            onChanged: checkActive,
-          ),
-          MainButton(
-            onPressed: () {
-              context.push('/albums');
-            },
-            title: 'Albums',
-          ),
-          Text(
-            formatNumber(1000000),
-          ),
-        ],
-      ),
-      second: const Column(
-        children: [
-          Text(
-            'Bbbb',
-          ),
-        ],
-      ),
+      titles: const ['Aaa', 'Bbb', 'Ccc'],
+      pages: [
+        Column(
+          children: [
+            const Text(
+              'Aaa',
+            ),
+            TxtField(
+              controller: controller1,
+              hintText: 'Aaa',
+              onChanged: checkActive,
+            ),
+            TxtField(
+              controller: controller2,
+              hintText: 'Bbb',
+              onChanged: checkActive,
+            ),
+            MainButton(
+              onPressed: () {
+                context.push('/albums');
+              },
+              title: 'Albums',
+            ),
+            Text(
+              formatNumber(1000000),
+            ),
+          ],
+        ),
+        const Column(
+          children: [
+            Text(
+              'Bbb',
+            ),
+          ],
+        ),
+        const Column(
+          children: [
+            Text(
+              'Ccc',
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

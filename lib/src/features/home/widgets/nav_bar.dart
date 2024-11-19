@@ -23,7 +23,6 @@ class NavBar extends StatelessWidget {
           builder: (context, state) {
             return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _NavBarButton(
                   id: 1,

@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 
+import '../../config/fonts.dart';
 import '../../utils.dart';
 
 class TabWidget extends StatefulWidget {
   const TabWidget({
     super.key,
-    required this.first,
-    required this.second,
-    required this.title1,
-    required this.title2,
+    required this.pages,
+    required this.titles,
   });
 
-  final Widget first;
-  final Widget second;
-  final String title1;
-  final String title2;
+  final List<Widget> pages;
+  final List<String> titles;
 
   @override
   State<TabWidget> createState() => _TabWidgetState();
@@ -23,11 +20,17 @@ class TabWidget extends StatefulWidget {
 class _TabWidgetState extends State<TabWidget>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  // int _selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
+    // _tabController.addListener(() {
+    //   setState(() {
+    //     _selectedIndex = _tabController.index;
+    //   });
+    // });
   }
 
   @override
@@ -41,37 +44,101 @@ class _TabWidgetState extends State<TabWidget>
     return Column(
       children: [
         SizedBox(height: 20 + getStatusBar(context)),
+        // Container(
+        //   height: 46,
+        //   // color: Colors.redAccent,
+        //   margin: const EdgeInsets.symmetric(horizontal: 0),
+        //   child: TabBar(
+        //     controller: _tabController,
+        //     indicatorColor: Colors.transparent,
+        //     overlayColor: WidgetStateProperty.all(Colors.transparent),
+        //     tabs: List.generate(
+        //       widget.titles.length,
+        //       (index) {
+        //         return _Tab(
+        //           title: widget.titles[index],
+        //           isSelected: _selectedIndex == index,
+        //         );
+        //       },
+        //     ),
+        //   ),
+        // ),
         Container(
           height: 45,
-          margin: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.redAccent,
-            borderRadius: BorderRadius.circular(24),
-          ),
+          margin: const EdgeInsets.symmetric(horizontal: 26),
           child: TabBar(
             controller: _tabController,
-            indicator: BoxDecoration(
-              borderRadius: BorderRadius.circular(24),
-              color: Colors.greenAccent,
+            indicator: const UnderlineTabIndicator(
+              borderSide: BorderSide(
+                width: 5.0,
+                color: Colors.greenAccent,
+              ),
             ),
-            labelColor: Colors.white,
-            unselectedLabelColor: Colors.black,
-            tabs: [
-              Tab(text: widget.title1),
-              Tab(text: widget.title2),
-            ],
+            overlayColor: WidgetStateProperty.all(
+              Colors.transparent, // splash color removed
+            ),
+            tabs: widget.titles.map((title) => _Tab(title)).toList(),
           ),
         ),
         Expanded(
           child: TabBarView(
             controller: _tabController,
-            children: [
-              widget.first,
-              widget.second,
-            ],
+            children: widget.pages,
           ),
         ),
       ],
     );
   }
 }
+
+class _Tab extends StatelessWidget {
+  const _Tab(this.title);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Tab(
+      child: Text(
+        title,
+        style: const TextStyle(
+          color: Colors.greenAccent,
+          fontSize: 20,
+          fontFamily: Fonts.w400,
+        ),
+      ),
+    );
+  }
+}
+
+// class _Tab extends StatelessWidget {
+//   const _Tab({
+//     required this.title,
+//     required this.isSelected,
+//   });
+
+//   final String title;
+//   final bool isSelected;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: 30,
+//       width: 70,
+//       decoration: BoxDecoration(
+//         color: isSelected ? Colors.white : Colors.transparent,
+//         borderRadius: BorderRadius.circular(4),
+//       ),
+//       child: Center(
+//         child: Text(
+//           title,
+//           style: const TextStyle(
+//             color: Color(0xff333333),
+//             fontSize: 18,
+//             fontFamily: Fonts.w500,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

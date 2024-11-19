@@ -1,27 +1,14 @@
 import 'package:flutter/material.dart';
 
 class NoData extends StatelessWidget {
-  const NoData({
-    super.key,
-    this.expanded = true,
-  });
-
-  final bool expanded;
+  const NoData({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return expanded
-        ? const Expanded(
-            child: Center(
-              child: Text(
-                'No data',
-              ),
-            ),
-          )
-        : const Center(
-            child: Text(
-              'No data',
-            ),
-          );
+    return const Center(
+      child: Text(
+        'No data',
+      ),
+    );
   }
 }
