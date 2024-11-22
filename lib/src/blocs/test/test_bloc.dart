@@ -23,39 +23,44 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     GetTestEvent event,
     Emitter<TestState> emit,
   ) async {
+    emit(TestLoading());
+    await initDB();
     await getModels();
-    emit(TestLoadedState(models: modelsList));
+    emit(TestLoaded(models: modelsList));
   }
 
   void _addTest(
     AddTestEvent event,
     Emitter<TestState> emit,
   ) async {
+    emit(TestLoading());
     modelsList.insert(0, event.model);
     // modelsList.add(event.model);
     await updateModels();
-    emit(TestLoadedState(models: modelsList));
+    emit(TestLoaded(models: modelsList));
   }
 
   void _editTest(
     EditTestEvent event,
     Emitter<TestState> emit,
   ) async {
+    emit(TestLoading());
     for (TestModel model in modelsList) {
       if (identical(model.id, event.model.id)) {
         model.title = event.model.title;
       }
     }
     await updateModels();
-    emit(TestLoadedState(models: modelsList));
+    emit(TestLoaded(models: modelsList));
   }
 
   void _deleteTest(
     DeleteTestEvent event,
     Emitter<TestState> emit,
   ) async {
+    emit(TestLoading());
     modelsList.removeWhere((model) => identical(model, event.model));
     await updateModels();
-    emit(TestLoadedState(models: modelsList));
+    emit(TestLoaded(models: modelsList));
   }
 }

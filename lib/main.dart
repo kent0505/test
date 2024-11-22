@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'src/core/config/router.dart';
 import 'src/core/config/themes.dart';
 import 'src/blocs/album/album_bloc.dart';
-import 'src/blocs/button/button_bloc.dart';
 import 'src/blocs/internet/internet_bloc.dart';
 import 'src/blocs/navbar/navbar_bloc.dart';
 import 'src/blocs/test/test_bloc.dart';
@@ -29,10 +28,9 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AlbumBloc()),
-        BlocProvider(create: (context) => ButtonBloc()),
-        BlocProvider(create: (context) => InternetBloc()..add(CheckInternet())),
         BlocProvider(create: (context) => NavbarBloc()),
-        BlocProvider(create: (context) => TestBloc()),
+        BlocProvider(create: (context) => InternetBloc()..add(CheckInternet())),
+        BlocProvider(create: (context) => TestBloc()..add(GetTestEvent())),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'fonts.dart';
+import 'my_fonts.dart';
 
 final theme = ThemeData(
   useMaterial3: false,
-  primarySwatch: Colors.grey,
-  fontFamily: Fonts.w400,
+  fontFamily: MyFonts.w400,
+  // primarySwatch: Colors.grey,
   // textSelectionTheme: const TextSelectionThemeData(
   //   cursorColor: AppColors.main,
   //   selectionColor: AppColors.main,
@@ -26,13 +26,13 @@ final theme = ThemeData(
 const cupertinoTheme = CupertinoThemeData(
   textTheme: CupertinoTextThemeData(
     textStyle: TextStyle(
-      fontFamily: Fonts.w400,
+      fontFamily: MyFonts.w400,
       color: Colors.black,
     ),
     dateTimePickerTextStyle: TextStyle(
       color: Colors.white,
       fontSize: 24,
-      fontFamily: Fonts.w400,
+      fontFamily: MyFonts.w400,
     ),
   ),
 );

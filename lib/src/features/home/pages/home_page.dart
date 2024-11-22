@@ -6,9 +6,10 @@ import '../../../core/widgets/custom_scaffold.dart';
 import '../../../core/widgets/others/internet_widget.dart';
 import '../../../blocs/navbar/navbar_bloc.dart';
 import '../widgets/nav_bar.dart';
-import 'actives_page.dart';
-import 'main_page.dart';
-import 'settings_page.dart';
+import 'initial_page.dart';
+import 'navbar_page2.dart';
+import 'navbar_page3.dart';
+import 'navbar_page4.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,17 +20,22 @@ class HomePage extends StatelessWidget {
       body: InternetWidget(
         child: Stack(
           children: [
-            BlocConsumer<NavbarBloc, NavbarState>(
-              listener: (context, state) {
-                logger(state.runtimeType);
-              },
-              builder: (context, state) {
-                if (state is NavbarActivities) return const ActivesPage();
+            Padding(
+              padding: EdgeInsets.only(bottom: navbarHeight),
+              child: BlocConsumer<NavbarBloc, NavbarState>(
+                listener: (context, state) {
+                  logger(state.runtimeType);
+                },
+                builder: (context, state) {
+                  if (state is Navbar2) return const NavbarPage2();
 
-                if (state is NavbarSettings) return const SettingsPage();
+                  if (state is Navbar3) return const NavbarPage3();
 
-                return const MainPage();
-              },
+                  if (state is Navbar4) return const NavbarPage4();
+
+                  return const InitialPage();
+                },
+              ),
             ),
             const NavBar(),
           ],

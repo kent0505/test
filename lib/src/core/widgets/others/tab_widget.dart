@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../config/fonts.dart';
+import '../../config/my_fonts.dart';
 import '../../utils.dart';
 
 class TabWidget extends StatefulWidget {
@@ -104,7 +104,7 @@ class _Tab extends StatelessWidget {
         style: const TextStyle(
           color: Colors.greenAccent,
           fontSize: 20,
-          fontFamily: Fonts.w400,
+          fontFamily: MyFonts.w400,
         ),
       ),
     );

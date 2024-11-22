@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/config/fonts.dart';
+import '../../../core/utils.dart';
+import '../../../core/config/my_fonts.dart';
 import '../../../core/widgets/others/svg_widget.dart';
 import '../../../core/widgets/buttons/my_button.dart';
 import '../../../blocs/navbar/navbar_bloc.dart';
@@ -14,7 +15,7 @@ class NavBar extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        height: 70,
+        height: navbarHeight,
         padding: const EdgeInsets.symmetric(horizontal: 20),
         decoration: const BoxDecoration(
           color: Colors.greenAccent,
@@ -30,14 +31,19 @@ class NavBar extends StatelessWidget {
                   active: state is NavbarInitial,
                 ),
                 _NavBarButton(
-                  id: 1,
+                  id: 2,
                   title: 'Actives',
-                  active: state is NavbarActivities,
+                  active: state is Navbar2,
                 ),
                 _NavBarButton(
-                  id: 1,
+                  id: 3,
+                  title: 'Test',
+                  active: state is Navbar3,
+                ),
+                _NavBarButton(
+                  id: 4,
                   title: 'Settings',
-                  active: state is NavbarSettings,
+                  active: state is Navbar4,
                 ),
               ],
             );
@@ -65,7 +71,7 @@ class _NavBarButton extends StatelessWidget {
       onPressed: active
           ? null
           : () {
-              context.read<NavbarBloc>().add(ChangePageEvent(index: id));
+              context.read<NavbarBloc>().add(ChangePage(index: id));
             },
       padding: 0,
       child: SizedBox(
@@ -73,14 +79,14 @@ class _NavBarButton extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 14),
-            SvgWidget('assets/tab$id.svg'),
+            const SvgWidget('assets/tab1.svg'),
             const SizedBox(height: 4),
             Text(
               title,
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 12,
-                fontFamily: Fonts.w500,
+                fontFamily: MyFonts.w500,
               ),
             ),
           ],

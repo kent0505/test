@@ -5,6 +5,8 @@ sealed class NavbarState {}
 
 final class NavbarInitial extends NavbarState {}
 
-final class NavbarActivities extends NavbarState {}
+final class Navbar2 extends NavbarState {}
 
-final class NavbarSettings extends NavbarState {}
+final class Navbar3 extends NavbarState {}
+
+final class Navbar4 extends NavbarState {}

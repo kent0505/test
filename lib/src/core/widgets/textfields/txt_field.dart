@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../config/fonts.dart';
+import '../../config/my_fonts.dart';
 
 class TxtField extends StatefulWidget {
   const TxtField({
@@ -90,7 +90,7 @@ class _TxtFieldState extends State<TxtField> {
         textCapitalization: TextCapitalization.sentences,
         style: const TextStyle(
           color: Colors.white,
-          fontFamily: Fonts.w400,
+          fontFamily: MyFonts.w400,
         ),
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(
@@ -100,7 +100,7 @@ class _TxtFieldState extends State<TxtField> {
           hintText: widget.hintText,
           hintStyle: TextStyle(
             color: Colors.white.withOpacity(0.5),
-            fontFamily: Fonts.w400,
+            fontFamily: MyFonts.w400,
           ),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent),

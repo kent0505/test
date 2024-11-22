@@ -23,30 +23,3 @@ Future<void> saveOnboard() async {
     logger(e);
   }
 }
-
-Future<void> saveString(String key, String value) async {
-  try {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setString(key, value);
-  } catch (e) {
-    logger(e);
-  }
-}
-
-Future<void> saveInt(String key, int value) async {
-  try {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setInt(key, value);
-  } catch (e) {
-    logger(e);
-  }
-}
-
-Future<void> saveBool(String key, bool value) async {
-  try {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setBool(key, value);
-  } catch (e) {
-    logger(e);
-  }
-}

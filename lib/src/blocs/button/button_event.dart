@@ -4,7 +4,7 @@ part of 'button_bloc.dart';
 sealed class ButtonEvent {}
 
 class CheckButtonActive extends ButtonEvent {
-  CheckButtonActive({required this.controllers});
+  // CheckButtonActive({required this.controllers});
 
-  final List<String> controllers;
+  // final List<String> controllers;
 }
