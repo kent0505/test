@@ -11,16 +11,16 @@ class TestBloc extends Bloc<TestEvent, TestState> {
   TestBloc() : super(TestInitial()) {
     on<TestEvent>(
       (event, emit) => switch (event) {
-        GetTestEvent() => _getTest(event, emit),
-        AddTestEvent() => _addTest(event, emit),
-        EditTestEvent() => _editTest(event, emit),
-        DeleteTestEvent() => _deleteTest(event, emit),
+        GetTest() => _getTest(event, emit),
+        AddTest() => _addTest(event, emit),
+        EditTest() => _editTest(event, emit),
+        DeleteTest() => _deleteTest(event, emit),
       },
     );
   }
 
   void _getTest(
-    GetTestEvent event,
+    GetTest event,
     Emitter<TestState> emit,
   ) async {
     emit(TestLoading());
@@ -30,7 +30,7 @@ class TestBloc extends Bloc<TestEvent, TestState> {
   }
 
   void _addTest(
-    AddTestEvent event,
+    AddTest event,
     Emitter<TestState> emit,
   ) async {
     emit(TestLoading());
@@ -41,7 +41,7 @@ class TestBloc extends Bloc<TestEvent, TestState> {
   }
 
   void _editTest(
-    EditTestEvent event,
+    EditTest event,
     Emitter<TestState> emit,
   ) async {
     emit(TestLoading());
@@ -55,7 +55,7 @@ class TestBloc extends Bloc<TestEvent, TestState> {
   }
 
   void _deleteTest(
-    DeleteTestEvent event,
+    DeleteTest event,
     Emitter<TestState> emit,
   ) async {
     emit(TestLoading());

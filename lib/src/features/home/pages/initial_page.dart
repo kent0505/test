@@ -28,7 +28,7 @@ class InitialPageState extends State<InitialPage> {
       id: getTimestamp(),
       title: controller.text,
     );
-    context.read<TestBloc>().add(AddTestEvent(model: model));
+    context.read<TestBloc>().add(AddTest(model: model));
     context.read<NavbarBloc>().add(ChangePage(index: 2));
   }
 

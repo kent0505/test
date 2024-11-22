@@ -3,22 +3,22 @@ part of 'test_bloc.dart';
 @immutable
 sealed class TestEvent {}
 
-class GetTestEvent extends TestEvent {}
+class GetTest extends TestEvent {}
 
-class AddTestEvent extends TestEvent {
-  AddTestEvent({required this.model});
-
-  final TestModel model;
-}
-
-class EditTestEvent extends TestEvent {
-  EditTestEvent({required this.model});
+class AddTest extends TestEvent {
+  AddTest({required this.model});
 
   final TestModel model;
 }
 
-class DeleteTestEvent extends TestEvent {
-  DeleteTestEvent({required this.model});
+class EditTest extends TestEvent {
+  EditTest({required this.model});
+
+  final TestModel model;
+}
+
+class DeleteTest extends TestEvent {
+  DeleteTest({required this.model});
 
   final TestModel model;
 }

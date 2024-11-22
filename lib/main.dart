@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => AlbumBloc()),
         BlocProvider(create: (context) => NavbarBloc()),
         BlocProvider(create: (context) => InternetBloc()..add(CheckInternet())),
-        BlocProvider(create: (context) => TestBloc()..add(GetTestEvent())),
+        BlocProvider(create: (context) => TestBloc()..add(GetTest())),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
