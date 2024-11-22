@@ -1,41 +1,65 @@
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
 
 import '../models/test_model.dart';
 import '../utils.dart';
-import 'prefs.dart';
 
-String boxName = 'shablonbox';
-String keyName = 'modelsList';
-List<TestModel> modelsList = [];
+class DB {
+  late Database db;
+  final String _tableName = 'test_models';
 
-Future<void> initDB() async {
-  try {
-    await Hive.initFlutter();
-    await getData();
-    // await Hive.deleteBoxFromDisk(DB.boxName);
-    Hive.registerAdapter(TestModelAdapter());
-  } catch (e) {
-    logger(e);
+  Future<Database> init() async {
+    logger('INIT DB');
+    final dbPath = await getDatabasesPath();
+    final path = join(dbPath, 'test_model.db');
+    db = await openDatabase(
+      path,
+      version: 1,
+      onCreate: (Database db, int version) async {
+        logger('ON CREATE');
+        await db.execute('''
+            CREATE TABLE $_tableName (
+              id INTEGER PRIMARY KEY AUTOINCREMENT,
+              title TEXT
+            )
+          ''');
+      },
+    );
+    return db;
   }
-}
 
-Future<void> getModels() async {
-  try {
-    final box = await Hive.openBox(boxName);
-    List data = box.get(keyName) ?? [];
-    modelsList = data.cast<TestModel>();
-    logger(modelsList.length);
-  } catch (e) {
-    logger(e);
+  Future<List<TestModel>> getModels() async {
+    final List<Map<String, dynamic>> maps = await db.query(_tableName);
+    return List.generate(maps.length, (i) {
+      return TestModel.fromMap(maps[i]);
+    });
   }
-}
 
-Future<void> updateModels() async {
-  try {
-    final box = await Hive.openBox(boxName);
-    box.put(keyName, modelsList);
-    modelsList = await box.get(keyName);
-  } catch (e) {
-    logger(e);
+  Future<List<TestModel>> addModel(TestModel model) async {
+    await db.insert(
+      _tableName,
+      model.toMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+    return await getModels();
+  }
+
+  Future<List<TestModel>> editModel(TestModel model) async {
+    await db.update(
+      _tableName,
+      model.toMap(),
+      where: 'id = ?',
+      whereArgs: [model.id],
+    );
+    return await getModels();
+  }
+
+  Future<List<TestModel>> deleteModel(TestModel model) async {
+    await db.delete(
+      _tableName,
+      where: 'id = ?',
+      whereArgs: [model.id],
+    );
+    return await getModels();
   }
 }

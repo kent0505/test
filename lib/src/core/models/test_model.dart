@@ -1,33 +1,23 @@
-import 'package:hive_flutter/hive_flutter.dart';
-
-@HiveType(typeId: 0)
 class TestModel {
   TestModel({
-    required this.id,
+    this.id = 0,
     required this.title,
   });
 
-  @HiveField(0)
-  final int id;
-  @HiveField(1)
+  int id;
   String title;
-}
 
-class TestModelAdapter extends TypeAdapter<TestModel> {
-  @override
-  final typeId = 0;
-
-  @override
-  TestModel read(BinaryReader reader) {
-    return TestModel(
-      id: reader.read(),
-      title: reader.read(),
-    );
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+    };
   }
 
-  @override
-  void write(BinaryWriter writer, TestModel obj) {
-    writer.write(obj.id);
-    writer.write(obj.title);
+  factory TestModel.fromMap(Map<String, dynamic> map) {
+    return TestModel(
+      id: map['id'],
+      title: map['title'],
+    );
   }
 }
