@@ -9,7 +9,7 @@ part 'test_event.dart';
 part 'test_state.dart';
 
 class TestBloc extends Bloc<TestEvent, TestState> {
-  final database = DB();
+  final _database = DB();
 
   TestBloc() : super(TestInitial()) {
     on<TestEvent>(
@@ -26,33 +26,49 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     GetTest event,
     Emitter<TestState> emit,
   ) async {
-    await getPrefs();
-    await database.init();
-    List<TestModel> models = await database.getModels();
-    emit(TestLoaded(models: models));
+    try {
+      await getPrefs();
+      await _database.init();
+      await _database.getModels();
+      emit(TestLoaded(models: modelsList));
+    } on Object catch (_) {
+      emit(TestLoaded(models: modelsList));
+    }
   }
 
   void _addTest(
     AddTest event,
     Emitter<TestState> emit,
   ) async {
-    List<TestModel> models = await database.addModel(event.model);
-    emit(TestLoaded(models: models));
+    try {
+      await _database.addModel(event.model);
+      emit(TestLoaded(models: modelsList));
+    } on Object catch (_) {
+      emit(TestLoaded(models: modelsList));
+    }
   }
 
   void _editTest(
     EditTest event,
     Emitter<TestState> emit,
   ) async {
-    List<TestModel> models = await database.editModel(event.model);
-    emit(TestLoaded(models: models));
+    try {
+      await _database.editModel(event.model);
+      emit(TestLoaded(models: modelsList));
+    } on Object catch (_) {
+      emit(TestLoaded(models: modelsList));
+    }
   }
 
   void _deleteTest(
     DeleteTest event,
     Emitter<TestState> emit,
   ) async {
-    List<TestModel> models = await database.deleteModel(event.model);
-    emit(TestLoaded(models: models));
+    try {
+      await _database.deleteModel(event.model);
+      emit(TestLoaded(models: modelsList));
+    } on Object catch (_) {
+      emit(TestLoaded(models: modelsList));
+    }
   }
 }
