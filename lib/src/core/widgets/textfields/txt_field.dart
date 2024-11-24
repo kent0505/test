@@ -30,27 +30,6 @@ class TxtField extends StatefulWidget {
 }
 
 class _TxtFieldState extends State<TxtField> {
-  // double _height() {
-  //   if (widget.multiline) return 120;
-  //   return 60;
-  // }
-
-  // int? _maxLines() {
-  //   if (widget.multiline) return null;
-  //   return 1;
-  // }
-
-  // bool _readOnly() {
-  //   if (widget.datePicker || widget.timePicker) return true;
-  //   return false;
-  // }
-
-  TextInputType? keyboardType() {
-    // if (widget.multiline) return TextInputType.multiline;
-    if (widget.number) return TextInputType.number;
-    return null;
-  }
-
   List<TextInputFormatter>? inputFormatters() {
     final length = LengthLimitingTextInputFormatter(widget.length);
     final digit = FilteringTextInputFormatter.digitsOnly;
@@ -75,18 +54,16 @@ class _TxtFieldState extends State<TxtField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: _height(),
       height: 50,
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.4),
+        color: Colors.white.withOpacity(0.5),
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextField(
         controller: widget.controller,
-        keyboardType: keyboardType(),
-        // maxLines: _maxLines(),
+        keyboardType: widget.number ? TextInputType.number : null,
+        // readOnly: true, // if date picker
         inputFormatters: inputFormatters(),
-        // readOnly: _readOnly(),
         textCapitalization: TextCapitalization.sentences,
         style: const TextStyle(
           color: Colors.white,

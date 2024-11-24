@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../config/my_fonts.dart';
+import 'dash_border_widget.dart';
 
 class BarChartWidget extends StatefulWidget {
   const BarChartWidget({
@@ -58,9 +59,8 @@ class _BarChartWidgetState extends State<BarChartWidget> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Center(
+      child: DashBorderWidget(
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: List.generate(
             widget.values1.length,
@@ -86,7 +86,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
                       );
                     },
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   Text(
                     widget.titles[index],
                     style: const TextStyle(
@@ -95,7 +95,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
                       fontFamily: MyFonts.w700,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                 ],
               );
             },
