@@ -29,11 +29,9 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     try {
       await getPrefs();
       await _database.init();
-      await _database.getModels();
-      emit(TestLoaded(models: modelsList));
-    } on Object catch (_) {
-      emit(TestLoaded(models: modelsList));
-    }
+      List<TestModel> models = await _database.getModels();
+      emit(TestLoaded(models: models));
+    } on Object catch (_) {}
   }
 
   void _addTest(
@@ -41,11 +39,9 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     Emitter<TestState> emit,
   ) async {
     try {
-      await _database.addModel(event.model);
-      emit(TestLoaded(models: modelsList));
-    } on Object catch (_) {
-      emit(TestLoaded(models: modelsList));
-    }
+      List<TestModel> models = await _database.addModel(event.model);
+      emit(TestLoaded(models: models));
+    } on Object catch (_) {}
   }
 
   void _editTest(
@@ -53,11 +49,9 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     Emitter<TestState> emit,
   ) async {
     try {
-      await _database.editModel(event.model);
-      emit(TestLoaded(models: modelsList));
-    } on Object catch (_) {
-      emit(TestLoaded(models: modelsList));
-    }
+      List<TestModel> models = await _database.editModel(event.model);
+      emit(TestLoaded(models: models));
+    } on Object catch (_) {}
   }
 
   void _deleteTest(
@@ -65,10 +59,8 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     Emitter<TestState> emit,
   ) async {
     try {
-      await _database.deleteModel(event.model);
+      List<TestModel> modelsList = await _database.deleteModel(event.model);
       emit(TestLoaded(models: modelsList));
-    } on Object catch (_) {
-      emit(TestLoaded(models: modelsList));
-    }
+    } on Object catch (_) {}
   }
 }

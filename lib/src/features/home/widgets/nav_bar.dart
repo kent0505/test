@@ -32,17 +32,17 @@ class NavBar extends StatelessWidget {
                 ),
                 _NavBarButton(
                   id: 2,
-                  title: 'Actives',
+                  title: '2',
                   active: state is Navbar2,
                 ),
                 _NavBarButton(
                   id: 3,
-                  title: 'Test',
+                  title: '3',
                   active: state is Navbar3,
                 ),
                 _NavBarButton(
                   id: 4,
-                  title: 'Settings',
+                  title: '4',
                   active: state is Navbar4,
                 ),
               ],
