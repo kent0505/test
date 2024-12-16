@@ -90,3 +90,37 @@ class DB {
     }
   }
 }
+
+
+// class DB {
+//   static String boxName = 'boxName';
+//   static String keyName = 'keyName';
+//   static List<Money> moneyList = [];
+// }
+
+// Future<void> initHive() async {
+//   await Hive.initFlutter();
+//   // await Hive.deleteBoxFromDisk(DB.boxName);
+//   Hive.registerAdapter(MoneyAdapter());
+// }
+
+// Future<void> getModels() async {
+//   try {
+//     final box = await Hive.openBox(DB.boxName);
+//     List data = box.get(DB.keyName) ?? [];
+//     DB.moneyList = data.cast<Money>();
+//     logger(DB.moneyList.length);
+//   } catch (e) {
+//     logger(e);
+//   }
+// }
+
+// Future<void> updateModels() async {
+//   try {
+//     final box = await Hive.openBox(DB.boxName);
+//     box.put(DB.keyName, DB.moneyList);
+//     DB.moneyList = await box.get(DB.keyName);
+//   } catch (e) {
+//     logger(e);
+//   }
+// }

@@ -20,6 +20,36 @@ class TestBloc extends Bloc<TestEvent, TestState> {
         DeleteTest() => _deleteTest(event, emit),
       },
     );
+
+    // on<GetTestsEvent>((event, emit) async {
+    //   await getModels();
+    //   emit(TestLoadedState(model: DB.modelsList));
+    // });
+
+    // on<AddTestEvent>((event, emit) async {
+    //   DB.modelsList.insert(0, event.model);
+    //   // DB.modelsList.add(event.model);
+    //   await updateModels();
+    //   emit(ModelLoadedState(model: DB.modelsList));
+    // });
+
+    // on<EditTestEvent>((event, emit) async {
+    //   for (Model model in DB.modelsList) {
+    //     if (model.id == event.model.id) {
+    //       model.title = event.model.title;
+    //       model.amount = event.model.amount;
+    //       model.category = event.model.category;
+    //     }
+    //   }
+    //   await updateModels();
+    //   emit(ModelLoadedState(model: DB.modelsList));
+    // });
+
+    // on<DeleteTestEvent>((event, emit) async {
+    //   DB.modelsList.removeWhere((element) => element.id == event.id);
+    //   await updateModels();
+    //   emit(ModelLoadedState(model: DB.modelsList));
+    // });
   }
 
   void _getTest(

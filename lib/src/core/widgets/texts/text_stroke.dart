@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../config/my_fonts.dart';
-
 class TextStroke extends StatelessWidget {
   const TextStroke(
     this.title, {
     super.key,
     this.fontSize = 20,
     this.strokeWidth = 6,
-    this.fontFamily = MyFonts.w700,
+    this.fontFamily = 'w700',
     this.borderColor = Colors.greenAccent,
     this.textColor = Colors.white,
   });

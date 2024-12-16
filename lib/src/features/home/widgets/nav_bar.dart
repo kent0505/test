@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/utils.dart';
-import '../../../core/config/my_fonts.dart';
 import '../../../core/widgets/others/svg_widget.dart';
 import '../../../core/widgets/buttons/my_button.dart';
 import '../../../blocs/navbar/navbar_bloc.dart';
@@ -86,7 +85,7 @@ class _NavBarButton extends StatelessWidget {
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 12,
-                fontFamily: MyFonts.w500,
+                fontFamily: 'w500',
               ),
             ),
           ],

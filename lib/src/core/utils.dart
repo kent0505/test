@@ -12,7 +12,7 @@ String timestampToString(int timestamp) {
   try {
     DateTime date = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
     return DateFormat('dd.MM.yyyy').format(date);
-  } catch (e) {
+  } catch (_) {
     return 'Error';
   }
 }
@@ -21,7 +21,7 @@ String dateToString(DateTime date) {
   // DateTime to 22.06.2000
   try {
     return DateFormat('dd.MM.yyyy').format(date);
-  } catch (e) {
+  } catch (_) {
     return 'Error';
   }
 }
@@ -30,7 +30,7 @@ String timeToString(DateTime time) {
   // DateTime to 22:00
   try {
     return DateFormat('HH:mm').format(time);
-  } catch (e) {
+  } catch (_) {
     return 'Error';
   }
 }
@@ -39,19 +39,30 @@ DateTime stringToDate(String date) {
   // 22.06.2000 to DateTime
   try {
     return DateFormat('dd.MM.yyyy').parse(date);
-  } catch (e) {
+  } catch (_) {
     return DateTime.now();
   }
 }
 
-String formatNumber(int number) => NumberFormat('#,###').format(number);
+String formatNumber(int number) {
+  return NumberFormat('#,###').format(number);
+}
 
-double getStatusBar(BuildContext context) =>
-    MediaQuery.of(context).viewPadding.top;
-double getBottom(BuildContext context) =>
-    MediaQuery.of(context).viewPadding.bottom;
-double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
-double getHeight(BuildContext context) => MediaQuery.of(context).size.height;
+double getStatusBar(BuildContext context) {
+  return MediaQuery.of(context).viewPadding.top;
+}
+
+double getBottom(BuildContext context) {
+  return MediaQuery.of(context).viewPadding.bottom;
+}
+
+double getWidth(BuildContext context) {
+  return MediaQuery.of(context).size.width;
+}
+
+double getHeight(BuildContext context) {
+  return MediaQuery.of(context).size.height;
+}
 
 void logger(Object message) => developer.log(message.toString());
 

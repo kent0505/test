@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../config/my_fonts.dart';
 import 'dash_border_widget.dart';
 
 class BarChartWidget extends StatefulWidget {
@@ -92,7 +91,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
                     style: const TextStyle(
                       color: Colors.black,
                       fontSize: 12,
-                      fontFamily: MyFonts.w700,
+                      fontFamily: 'w700',
                     ),
                   ),
                   const SizedBox(height: 10),

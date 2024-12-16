@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../blocs/test/test_bloc.dart';
-import '../../../core/config/my_fonts.dart';
 import '../../../core/widgets/buttons/my_button.dart';
 import '../../../core/widgets/others/no_data.dart';
 
@@ -32,7 +31,7 @@ class NavbarPage2 extends StatelessWidget {
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
-                    fontFamily: MyFonts.w700,
+                    fontFamily: 'w700',
                   ),
                 ),
               );
