@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/utils.dart';
-import '../../../core/widgets/others/svg_widget.dart';
-import '../../../core/widgets/buttons/my_button.dart';
+import '../../../core/widgets/svg_widget.dart';
+import '../../../core/widgets/my_button.dart';
 import '../../../blocs/navbar/navbar_bloc.dart';
 
 class NavBar extends StatelessWidget {
@@ -14,7 +13,7 @@ class NavBar extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        height: navbarHeight,
+        height: 70,
         padding: const EdgeInsets.symmetric(horizontal: 20),
         decoration: const BoxDecoration(
           color: Colors.greenAccent,

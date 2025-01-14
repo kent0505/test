@@ -9,7 +9,17 @@ Future<void> getPrefs() async {
   onboard = prefs.getBool('onboard') ?? true;
 }
 
-Future<void> saveOnboard() async {
+Future<void> saveBool(String key, bool value) async {
   final prefs = await SharedPreferences.getInstance();
-  prefs.setBool('onboard', false);
+  prefs.setBool(key, value);
+}
+
+Future<void> saveString(String key, String value) async {
+  final prefs = await SharedPreferences.getInstance();
+  prefs.setString(key, value);
+}
+
+Future<void> saveInt(String key, int value) async {
+  final prefs = await SharedPreferences.getInstance();
+  prefs.setInt(key, value);
 }

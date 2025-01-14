@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../blocs/internet/internet_bloc.dart';
+import '../../blocs/internet/internet_bloc.dart';
 import 'no_internet_dialog.dart';
 
 class InternetWidget extends StatelessWidget {

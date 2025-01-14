@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../core/db/prefs.dart';
-import '../../core/widgets/buttons/main_button.dart';
+import '../../core/widgets/main_button.dart';
 import '../../core/widgets/custom_scaffold.dart';
+import '../home/pages/home_page.dart';
 
 class OnboardPage extends StatefulWidget {
   const OnboardPage({super.key});
@@ -27,9 +27,14 @@ class _OnboardPageState extends State<OnboardPage> {
 
   void onNext() async {
     if (index == 2) {
-      await saveOnboard();
-
-      if (mounted) context.go('/home');
+      await saveBool('onboard', false);
+      if (mounted) {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
+          (route) => false,
+        );
+      }
     } else {
       setState(() {
         index++;

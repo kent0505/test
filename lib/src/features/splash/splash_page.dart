@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../blocs/test/test_bloc.dart';
 import '../../core/db/prefs.dart';
-import '../../core/widgets/others/loading_widget.dart';
+import '../../core/widgets/loading_widget.dart';
 import '../../core/widgets/custom_scaffold.dart';
+import '../home/pages/home_page.dart';
+import 'onboard_page.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -20,11 +21,17 @@ class SplashPage extends StatelessWidget {
               const Duration(seconds: 2),
               () {
                 if (context.mounted) {
-                  if (onboard) {
-                    context.go('/onboard');
-                  } else {
-                    context.go('/home');
+                  if (context.mounted) {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              onboard ? OnboardPage() : HomePage()),
+                      (route) => false,
+                    );
                   }
+
+                  // context.go(onboard ? '/onboard' : '/home');
                 }
               },
             );

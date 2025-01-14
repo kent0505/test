@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class TxtField extends StatefulWidget {
+class TxtField extends StatelessWidget {
   const TxtField({
     super.key,
     required this.controller,
@@ -24,32 +24,6 @@ class TxtField extends StatefulWidget {
   final void Function() onChanged;
 
   @override
-  State<TxtField> createState() => _TxtFieldState();
-}
-
-class _TxtFieldState extends State<TxtField> {
-  List<TextInputFormatter>? inputFormatters() {
-    final length = LengthLimitingTextInputFormatter(widget.length);
-    final digit = FilteringTextInputFormatter.digitsOnly;
-    if (widget.number) return [length, digit];
-    return [length];
-  }
-
-  // void onDateTimeChanged(DateTime date) {
-  //   setState(() {
-  //     widget.controller.text = dateToString(date);
-  //   });
-  //   widget.onChanged();
-  // }
-
-  // void onTimeChanged(DateTime date) {
-  //   setState(() {
-  //     widget.controller.text = timeToString(date);
-  //   });
-  //   widget.onChanged();
-  // }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       height: 50,
@@ -58,10 +32,13 @@ class _TxtFieldState extends State<TxtField> {
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextField(
-        controller: widget.controller,
-        keyboardType: widget.number ? TextInputType.number : null,
+        controller: controller,
+        keyboardType: number ? TextInputType.number : null,
         // readOnly: true, // if date picker
-        inputFormatters: inputFormatters(),
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(length),
+          if (number) FilteringTextInputFormatter.digitsOnly,
+        ],
         textCapitalization: TextCapitalization.sentences,
         style: const TextStyle(
           color: Colors.white,
@@ -72,7 +49,7 @@ class _TxtFieldState extends State<TxtField> {
             vertical: 0,
             horizontal: 16,
           ),
-          hintText: widget.hintText,
+          hintText: hintText,
           hintStyle: TextStyle(
             color: Colors.white.withValues(alpha: 0.5),
             fontFamily: 'w400',
@@ -88,8 +65,23 @@ class _TxtFieldState extends State<TxtField> {
           FocusManager.instance.primaryFocus?.unfocus();
         },
         onChanged: (value) {
-          widget.onChanged();
+          onChanged();
         },
+
+        // void onDateTimeChanged(DateTime date) {
+        //   setState(() {
+        //     widget.controller.text = dateToString(date);
+        //   });
+        //   widget.onChanged();
+        // }
+
+        // void onTimeChanged(DateTime date) {
+        //   setState(() {
+        //     widget.controller.text = timeToString(date);
+        //   });
+        //   widget.onChanged();
+        // }
+
         // onTap: () async {
         //   if (widget.datePicker) {
         //     await showCupertinoModalPopup(

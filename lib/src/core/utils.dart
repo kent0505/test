@@ -3,45 +3,23 @@ import 'dart:developer' as developer;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-double navbarHeight = 70;
-
 int getTimestamp() => DateTime.now().millisecondsSinceEpoch ~/ 1000;
 
 String timestampToString(int timestamp) {
-  // timestamp to 22.06.2000
-  try {
-    DateTime date = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
-    return DateFormat('dd.MM.yyyy').format(date);
-  } catch (_) {
-    return 'Error';
-  }
+  DateTime date = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
+  return DateFormat('dd.MM.yyyy').format(date); // timestamp to 22.06.2000
 }
 
 String dateToString(DateTime date) {
-  // DateTime to 22.06.2000
-  try {
-    return DateFormat('dd.MM.yyyy').format(date);
-  } catch (_) {
-    return 'Error';
-  }
+  return DateFormat('dd.MM.yyyy').format(date); // DateTime to 22.06.2000
 }
 
 String timeToString(DateTime time) {
-  // DateTime to 22:00
-  try {
-    return DateFormat('HH:mm').format(time);
-  } catch (_) {
-    return 'Error';
-  }
+  return DateFormat('HH:mm').format(time); // DateTime to 22:00
 }
 
 DateTime stringToDate(String date) {
-  // 22.06.2000 to DateTime
-  try {
-    return DateFormat('dd.MM.yyyy').parse(date);
-  } catch (_) {
-    return DateTime.now();
-  }
+  return DateFormat('dd.MM.yyyy').parse(date); // 22.06.2000 to DateTime
 }
 
 String formatNumber(int number) {

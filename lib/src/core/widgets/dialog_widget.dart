@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../buttons/my_button.dart';
+import 'my_button.dart';
 
 class DialogWidget extends StatelessWidget {
   const DialogWidget({
@@ -26,6 +26,9 @@ class DialogWidget extends StatelessWidget {
             const SizedBox(height: 20),
             Text(
               title,
+              style: TextStyle(
+                color: Colors.white,
+              ),
             ),
             const Spacer(),
             if (onlyClose)
@@ -84,6 +87,9 @@ class _Button extends StatelessWidget {
         children: [
           Text(
             title,
+            style: TextStyle(
+              color: Colors.white,
+            ),
           ),
         ],
       ),

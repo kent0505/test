@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/buttons/switch_button.dart';
-import '../../../core/widgets/others/bar_chart_widget.dart';
-import '../../../core/widgets/others/dash_line_widget.dart';
+import '../../../core/widgets/switch_button.dart';
+import '../../../core/widgets/bar_chart_widget.dart';
+import '../../../core/widgets/dash_line_widget.dart';
 
 class NavbarPage3 extends StatelessWidget {
   const NavbarPage3({super.key});

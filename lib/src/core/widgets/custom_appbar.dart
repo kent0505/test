@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-import 'buttons/my_button.dart';
+import 'my_button.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({super.key});
@@ -14,7 +13,7 @@ class CustomAppbar extends StatelessWidget {
         children: [
           MyButton(
             onPressed: () {
-              context.pop();
+              Navigator.pop(context);
             },
             child: const Icon(Icons.chevron_left),
           ),

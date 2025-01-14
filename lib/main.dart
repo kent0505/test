@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'src/core/config/router.dart';
 import 'src/core/config/themes.dart';
 import 'src/blocs/album/album_bloc.dart';
 import 'src/blocs/internet/internet_bloc.dart';
 import 'src/blocs/navbar/navbar_bloc.dart';
 import 'src/blocs/test/test_bloc.dart';
+import 'src/features/splash/splash_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,11 +32,16 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => InternetBloc()..add(CheckInternet())),
         BlocProvider(create: (context) => TestBloc()..add(GetTest())),
       ],
-      child: MaterialApp.router(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: theme,
-        routerConfig: routerConfig,
+        home: SplashPage(),
       ),
+      // child: MaterialApp.router(
+      //   debugShowCheckedModeBanner: false,
+      //   theme: theme,
+      //   routerConfig: routerConfig,
+      // ),
     );
   }
 }

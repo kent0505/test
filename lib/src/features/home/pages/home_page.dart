@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/utils.dart';
 import '../../../core/widgets/custom_scaffold.dart';
-import '../../../core/widgets/others/internet_widget.dart';
+import '../../../core/widgets/internet_widget.dart';
 import '../../../blocs/navbar/navbar_bloc.dart';
 import '../widgets/nav_bar.dart';
 import 'initial_page.dart';
@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: navbarHeight),
+              padding: EdgeInsets.only(bottom: 70),
               child: BlocConsumer<NavbarBloc, NavbarState>(
                 listener: (context, state) {
                   logger(state.runtimeType);

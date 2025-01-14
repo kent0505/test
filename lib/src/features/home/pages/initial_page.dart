@@ -5,8 +5,8 @@ import '../../../blocs/navbar/navbar_bloc.dart';
 import '../../../blocs/test/test_bloc.dart';
 import '../../../core/models/test_model.dart';
 import '../../../core/utils.dart';
-import '../../../core/widgets/buttons/main_button.dart';
-import '../../../core/widgets/textfields/txt_field.dart';
+import '../../../core/widgets/main_button.dart';
+import '../../../core/widgets/txt_field.dart';
 
 class InitialPage extends StatefulWidget {
   const InitialPage({super.key});

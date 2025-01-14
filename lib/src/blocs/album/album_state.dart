@@ -9,7 +9,6 @@ final class AlbumLoading extends AlbumState {}
 
 final class AlbumLoaded extends AlbumState {
   AlbumLoaded({required this.albums});
-
   final List<Album> albums;
 }
 

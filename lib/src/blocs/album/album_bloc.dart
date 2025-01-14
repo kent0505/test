@@ -8,7 +8,7 @@ part 'album_event.dart';
 part 'album_state.dart';
 
 class AlbumBloc extends Bloc<AlbumEvent, AlbumState> {
-  final _albumApi = AlbumApi();
+  final _api = AlbumApi();
 
   AlbumBloc() : super(AlbumInitial()) {
     on<AlbumEvent>(
@@ -24,7 +24,7 @@ class AlbumBloc extends Bloc<AlbumEvent, AlbumState> {
   ) async {
     emit(AlbumLoading());
     try {
-      List<Album> albums = await _albumApi.fetchAlbums();
+      List<Album> albums = await _api.fetchAlbums();
       emit(AlbumLoaded(albums: albums));
     } on Object catch (_) {
       emit(AlbumError());

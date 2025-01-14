@@ -69,7 +69,8 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     Emitter<TestState> emit,
   ) async {
     try {
-      List<TestModel> models = await _database.addModel(event.model);
+      await _database.addModel(event.model);
+      List<TestModel> models = await _database.getModels();
       emit(TestLoaded(models: models));
     } on Object catch (_) {}
   }
@@ -79,7 +80,8 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     Emitter<TestState> emit,
   ) async {
     try {
-      List<TestModel> models = await _database.editModel(event.model);
+      await _database.editModel(event.model);
+      List<TestModel> models = await _database.getModels();
       emit(TestLoaded(models: models));
     } on Object catch (_) {}
   }
@@ -89,7 +91,8 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     Emitter<TestState> emit,
   ) async {
     try {
-      List<TestModel> modelsList = await _database.deleteModel(event.model);
+      await _database.deleteModel(event.model);
+      List<TestModel> modelsList = await _database.getModels();
       emit(TestLoaded(models: modelsList));
     } on Object catch (_) {}
   }
