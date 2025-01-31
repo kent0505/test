@@ -56,23 +56,3 @@ class DB {
     );
   }
 }
-
-// List listname = [];
-
-// Future<void> initHive() async {
-//   await Hive.initFlutter();
-//   // await Hive.deleteBoxFromDisk('boxname');
-//   Hive.registerAdapter(MoneyAdapter());
-// }
-
-// Future<void> getModels() async {
-//   final box = await Hive.openBox('boxname');
-//   List data = box.get('keyname') ?? [];
-//   listname = data.cast<Money>();
-// }
-
-// Future<void> updateModels() async {
-//   final box = await Hive.openBox('boxname');
-//   box.put('keyname', listname);
-//   listname = await box.get('keyname');
-// }

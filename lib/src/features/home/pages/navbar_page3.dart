@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../core/widgets/switch_button.dart';
 import '../../../core/widgets/bar_chart_widget.dart';
-import '../../../core/widgets/dash_line_widget.dart';
 
 class NavbarPage3 extends StatelessWidget {
   const NavbarPage3({super.key});
@@ -42,7 +41,6 @@ class NavbarPage3 extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 50),
-        const DashLineWidget(),
         const SizedBox(height: 50),
         const SwitchButton(),
         const SizedBox(height: 10),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../config/app_colors.dart';
+
 class TxtField extends StatelessWidget {
   const TxtField({
     super.key,
@@ -28,7 +30,7 @@ class TxtField extends StatelessWidget {
     return Container(
       height: 50,
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.5),
+        color: AppColors.white.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextField(
@@ -40,9 +42,9 @@ class TxtField extends StatelessWidget {
           if (number) FilteringTextInputFormatter.digitsOnly,
         ],
         textCapitalization: TextCapitalization.sentences,
-        style: const TextStyle(
-          color: Colors.white,
-          fontFamily: 'w400',
+        style: TextStyle(
+          color: AppColors.white,
+          fontFamily: 'w600',
         ),
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(
@@ -51,8 +53,8 @@ class TxtField extends StatelessWidget {
           ),
           hintText: hintText,
           hintStyle: TextStyle(
-            color: Colors.white.withValues(alpha: 0.5),
-            fontFamily: 'w400',
+            color: AppColors.white.withValues(alpha: 0.5),
+            fontFamily: 'w600',
           ),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent),
@@ -67,6 +69,10 @@ class TxtField extends StatelessWidget {
         onChanged: (value) {
           onChanged();
         },
+      ),
+    );
+  }
+}
 
         // void onDateTimeChanged(DateTime date) {
         //   setState(() {
@@ -134,10 +140,6 @@ class TxtField extends StatelessWidget {
         //     );
         //   }
         // },
-      ),
-    );
-  }
-}
 
 // 1
 //  date_picker_plus: ^4.1.0

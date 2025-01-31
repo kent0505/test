@@ -21,34 +21,29 @@ class TestBloc extends Bloc<TestEvent, TestState> {
       },
     );
 
-    // on<GetTestsEvent>((event, emit) async {
+    // on<GetTest>((event, emit) async {
     //   await getModels();
-    //   emit(TestLoadedState(model: DB.modelsList));
+    //   emit(TestLoaded(models: modelsList));
     // });
 
-    // on<AddTestEvent>((event, emit) async {
-    //   DB.modelsList.insert(0, event.model);
-    //   // DB.modelsList.add(event.model);
+    // on<AddTest>((event, emit) async {
+    //   modelsList.insert(0, event.model);
     //   await updateModels();
-    //   emit(ModelLoadedState(model: DB.modelsList));
+    //   emit(TestLoaded(models: modelsList));
     // });
 
-    // on<EditTestEvent>((event, emit) async {
-    //   for (Model model in DB.modelsList) {
-    //     if (model.id == event.model.id) {
-    //       model.title = event.model.title;
-    //       model.amount = event.model.amount;
-    //       model.category = event.model.category;
-    //     }
-    //   }
+    // on<EditTest>((event, emit) async {
+    //   modelsList.singleWhere((model) => model.id == event.model.id)
+    //     ..title = 'aaa'
+    //     ..title = 'bbb';
     //   await updateModels();
-    //   emit(ModelLoadedState(model: DB.modelsList));
+    //   emit(TestLoaded(models: modelsList));
     // });
 
-    // on<DeleteTestEvent>((event, emit) async {
-    //   DB.modelsList.removeWhere((element) => element.id == event.id);
+    // on<DeleteTest>((event, emit) async {
+    //   modelsList.removeWhere((model) => model.id == event.id);
     //   await updateModels();
-    //   emit(ModelLoadedState(model: DB.modelsList));
+    //   emit(TestLoaded(models: modelsList));
     // });
   }
 

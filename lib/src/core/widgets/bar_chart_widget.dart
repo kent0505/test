@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'dash_border_widget.dart';
+import '../config/app_colors.dart';
 
 class BarChartWidget extends StatefulWidget {
   const BarChartWidget({
@@ -55,50 +55,48 @@ class _BarChartWidgetState extends State<BarChartWidget> {
       height: 200,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: DashBorderWidget(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: List.generate(
-            widget.values1.length,
-            (index) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  ValueListenableBuilder(
-                    valueListenable: _normalized,
-                    builder: (context, value, child) {
-                      return Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          _Bar(
-                            height: value[index],
-                            color: Colors.greenAccent,
-                          ),
-                          _Bar(
-                            height: value[index + widget.values2.length],
-                            color: Colors.redAccent,
-                          ),
-                        ],
-                      );
-                    },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: List.generate(
+          widget.values1.length,
+          (index) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ValueListenableBuilder(
+                  valueListenable: _normalized,
+                  builder: (context, value, child) {
+                    return Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        _Bar(
+                          height: value[index],
+                          color: AppColors.main,
+                        ),
+                        _Bar(
+                          height: value[index + widget.values2.length],
+                          color: AppColors.redAccent,
+                        ),
+                      ],
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  widget.titles[index],
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 12,
+                    fontFamily: 'w700',
                   ),
-                  const SizedBox(height: 10),
-                  Text(
-                    widget.titles[index],
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 12,
-                      fontFamily: 'w700',
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                ],
-              );
-            },
-          ),
+                ),
+                const SizedBox(height: 10),
+              ],
+            );
+          },
         ),
       ),
     );

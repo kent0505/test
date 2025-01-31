@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
-import '../config/themes.dart';
+import '../config/app_colors.dart';
 
-class MyButton extends StatelessWidget {
-  const MyButton({
+class Button extends StatelessWidget {
+  const Button({
     super.key,
     this.onPressed,
     this.padding = 0,
@@ -19,7 +19,19 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoTheme(
-      data: cupertinoTheme,
+      data: CupertinoThemeData(
+        textTheme: CupertinoTextThemeData(
+          textStyle: TextStyle(
+            fontFamily: 'w600',
+            color: AppColors.black,
+          ),
+          // dateTimePickerTextStyle: TextStyle(
+          //   color: Colors.white,
+          //   fontSize: 24,
+          //   fontFamily: 'w400',
+          // ),
+        ),
+      ),
       child: CupertinoButton(
         onPressed: onPressed,
         padding: EdgeInsets.all(padding),

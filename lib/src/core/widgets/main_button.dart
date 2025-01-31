@@ -1,5 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../config/app_colors.dart';
+import 'button.dart';
 
 class MainButton extends StatelessWidget {
   const MainButton({
@@ -22,17 +24,16 @@ class MainButton extends StatelessWidget {
       height: 50,
       width: width,
       decoration: BoxDecoration(
-        color: isActive ? Colors.greenAccent : Colors.redAccent,
+        color: isActive ? AppColors.main : AppColors.redAccent,
         borderRadius: BorderRadius.circular(8),
       ),
-      child: CupertinoButton(
+      child: Button(
         onPressed: isActive ? onPressed : null,
-        padding: EdgeInsets.zero,
         child: Center(
           child: Text(
             title,
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: AppColors.white,
             ),
             // fontSize: 16,
             // color: state is ButtonInitial

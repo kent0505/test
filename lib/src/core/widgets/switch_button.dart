@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'my_button.dart';
+import '../config/app_colors.dart';
+import 'button.dart';
 
 class SwitchButton extends StatefulWidget {
   const SwitchButton({super.key});
@@ -27,10 +28,10 @@ class _SwitchButtonState extends State<SwitchButton> {
             height: 30,
             width: 60,
             decoration: BoxDecoration(
-              color: value ? Colors.white : Colors.greenAccent,
+              color: value ? AppColors.white : AppColors.main,
               borderRadius: BorderRadius.circular(20),
             ),
-            child: MyButton(
+            child: Button(
               onPressed: onSwitch,
               minSize: 30,
               child: Stack(
@@ -44,7 +45,7 @@ class _SwitchButtonState extends State<SwitchButton> {
                       width: 22,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: value ? Colors.redAccent : Colors.white,
+                        color: value ? AppColors.redAccent : AppColors.white,
                       ),
                     ),
                   ),

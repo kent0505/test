@@ -14,7 +14,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      body: BlocConsumer<TestBloc, TestState>(
+      body: BlocListener<TestBloc, TestState>(
         listener: (context, state) {
           if (state is TestLoaded) {
             Future.delayed(
@@ -25,8 +25,10 @@ class SplashPage extends StatelessWidget {
                     Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              onboard ? OnboardPage() : HomePage()),
+                        builder: (context) {
+                          return onboard ? OnboardPage() : HomePage();
+                        },
+                      ),
                       (route) => false,
                     );
                   }
@@ -37,11 +39,9 @@ class SplashPage extends StatelessWidget {
             );
           }
         },
-        builder: (context, state) {
-          return const Center(
-            child: LoadingWidget(),
-          );
-        },
+        child: Center(
+          child: LoadingWidget(),
+        ),
       ),
     );
   }

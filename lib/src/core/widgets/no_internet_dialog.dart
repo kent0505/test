@@ -12,13 +12,19 @@ class NoInternetDialog extends StatelessWidget {
       listener: (context, state) {
         if (state is InternetSuccess) Navigator.pop(context);
       },
-      child: const Dialog(
-        backgroundColor: Colors.greenAccent,
-        child: SizedBox(
-          height: 150,
-          child: Center(
-            child: Text(
-              'No Internet',
+      child: PopScope(
+        canPop: false,
+        child: const Dialog(
+          backgroundColor: Colors.greenAccent,
+          child: SizedBox(
+            height: 150,
+            child: Center(
+              child: Text(
+                'No Internet',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
         ),

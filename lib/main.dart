@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'src/blocs/timer/timer_bloc.dart';
 import 'src/core/config/themes.dart';
 import 'src/blocs/album/album_bloc.dart';
 import 'src/blocs/internet/internet_bloc.dart';
@@ -9,12 +10,7 @@ import 'src/blocs/navbar/navbar_bloc.dart';
 import 'src/blocs/test/test_bloc.dart';
 import 'src/features/splash/splash_page.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
+void main() {
   runApp(const MyApp());
 }
 
@@ -23,7 +19,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // precacheImages(context);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
 
     return MultiBlocProvider(
       providers: [
@@ -31,17 +30,13 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => NavbarBloc()),
         BlocProvider(create: (context) => InternetBloc()..add(CheckInternet())),
         BlocProvider(create: (context) => TestBloc()..add(GetTest())),
+        BlocProvider(create: (context) => TimerBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: theme,
         home: SplashPage(),
       ),
-      // child: MaterialApp.router(
-      //   debugShowCheckedModeBanner: false,
-      //   theme: theme,
-      //   routerConfig: routerConfig,
-      // ),
     );
   }
 }

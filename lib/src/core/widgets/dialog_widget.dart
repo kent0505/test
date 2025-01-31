@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'my_button.dart';
+import '../config/app_colors.dart';
+import 'button.dart';
 
 class DialogWidget extends StatelessWidget {
   const DialogWidget({
@@ -17,7 +18,7 @@ class DialogWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Colors.greenAccent,
+      backgroundColor: AppColors.main,
       child: SizedBox(
         height: 150,
         width: 200,
@@ -27,7 +28,7 @@ class DialogWidget extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.white,
               ),
             ),
             const Spacer(),
@@ -79,7 +80,7 @@ class _Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MyButton(
+    return Button(
       padding: 0,
       onPressed: onPressed,
       child: Row(
@@ -88,7 +89,7 @@ class _Button extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              color: Colors.white,
+              color: AppColors.white,
             ),
           ),
         ],

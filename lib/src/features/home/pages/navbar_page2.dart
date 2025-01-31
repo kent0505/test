@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../blocs/test/test_bloc.dart';
-import '../../../core/widgets/my_button.dart';
+import '../../../core/widgets/button.dart';
 import '../../../core/widgets/no_data.dart';
 
 class NavbarPage2 extends StatelessWidget {
@@ -20,7 +20,7 @@ class NavbarPage2 extends StatelessWidget {
           return ListView.builder(
             itemCount: state.models.length,
             itemBuilder: (context, index) {
-              return MyButton(
+              return Button(
                 onPressed: () {
                   context
                       .read<TestBloc>()

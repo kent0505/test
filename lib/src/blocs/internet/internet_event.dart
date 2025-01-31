@@ -7,5 +7,6 @@ class CheckInternet extends InternetEvent {}
 
 class ChangeInternet extends InternetEvent {
   ChangeInternet({required this.connected});
+
   final bool connected;
 }

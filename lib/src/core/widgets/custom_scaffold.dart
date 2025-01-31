@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../config/app_colors.dart';
+
 class CustomScaffold extends StatelessWidget {
   const CustomScaffold({
     super.key,
@@ -12,7 +14,7 @@ class CustomScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.black,
       body: body,
       // body: Stack(
       //   children: [
