@@ -8,11 +8,13 @@ class DialogWidget extends StatelessWidget {
     super.key,
     required this.title,
     this.onlyClose = false,
+    this.body,
     required this.onYes,
   });
 
   final String title;
   final bool onlyClose;
+  final Widget? body;
   final void Function() onYes;
 
   @override
@@ -28,10 +30,13 @@ class DialogWidget extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                color: AppColors.white,
+                color: Colors.white,
+                fontSize: 20,
+                fontFamily: 'w700',
               ),
             ),
             const Spacer(),
+            body ?? Container(),
             if (onlyClose)
               _Button(
                 title: 'Close',
@@ -89,7 +94,9 @@ class _Button extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              color: AppColors.white,
+              color: Colors.white,
+              fontSize: 16,
+              fontFamily: 'w700',
             ),
           ),
         ],

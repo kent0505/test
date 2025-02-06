@@ -10,3 +10,5 @@ final class Navbar2 extends NavbarState {}
 final class Navbar3 extends NavbarState {}
 
 final class Navbar4 extends NavbarState {}
+
+final class Navbar5 extends NavbarState {}

@@ -4,23 +4,20 @@ import '../models/model.dart';
 
 List<Model> modelsList = [];
 
-const boxName = 'boxName';
-const keyName = 'keyName';
-
-Future<void> initHive() async {
-  await Hive.initFlutter();
-  // await Hive.deleteBoxFromDisk('boxname');
-  Hive.registerAdapter(ModelAdapter());
-}
+const _boxName = 'boxName';
+const _key = 'key';
 
 Future<void> getModels() async {
-  final box = await Hive.openBox(boxName);
-  List data = box.get(keyName) ?? [];
+  await Hive.initFlutter();
+  // await Hive.deleteBoxFromDisk(_boxName);
+  Hive.registerAdapter(ModelAdapter());
+  final box = await Hive.openBox(_boxName);
+  List data = box.get(_key) ?? [];
   modelsList = data.cast<Model>();
 }
 
 Future<void> updateModels() async {
-  final box = await Hive.openBox(boxName);
-  box.put(keyName, modelsList);
-  modelsList = await box.get(keyName);
+  final box = await Hive.openBox(_boxName);
+  box.put(_key, modelsList);
+  modelsList = await box.get(_key);
 }

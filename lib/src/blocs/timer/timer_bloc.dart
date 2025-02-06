@@ -3,30 +3,40 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../core/utils.dart';
+
 part 'timer_event.dart';
 part 'timer_state.dart';
 
 class TimerBloc extends Bloc<TimerEvent, TimerState> {
-  late Timer _timer;
+  Timer? _timer;
+  int _second = 0;
 
   TimerBloc() : super(TimerInitial()) {
     on<StartTimer>((event, emit) async {
-      int second = event.seconds;
-
-      _timer.cancel();
-      _timer = Timer.periodic(Duration(seconds: 1), (timer) {
-        if (second > 0) {
-          second--;
-          emit(TimerStarted(second: second));
+      logger('TIMER STARTED');
+      _timer?.cancel();
+      _second = event.seconds;
+      emit(TimerStarted(second: _second));
+      _timer = Timer.periodic(Duration(seconds: 1), (_) {
+        if (_second > 0) {
+          _second--;
+          add(TickTimer(second: _second));
         } else {
-          timer.cancel();
-          emit(TimerStopped());
+          add(StopTimer());
         }
       });
     });
 
     on<StopTimer>((event, emit) {
-      _timer.cancel();
+      _timer?.cancel();
+      logger('TIMER STOPPED');
+      emit(TimerStopped());
+    });
+
+    on<TickTimer>((event, emit) {
+      logger('TICK');
+      emit(TimerStarted(second: event.second));
     });
   }
 }

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../blocs/album/album_bloc.dart';
 import '../../core/widgets/loading_widget.dart';
-import '../../core/widgets/custom_scaffold.dart';
 
 class AlbumsPage extends StatefulWidget {
   const AlbumsPage({super.key});
@@ -31,12 +30,10 @@ class _AlbumsPageState extends State<AlbumsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
+    return Scaffold(
       body: BlocBuilder<AlbumBloc, AlbumState>(
         builder: (context, state) {
-          if (state is AlbumLoading) {
-            return const LoadingWidget();
-          }
+          if (state is AlbumLoading) return const LoadingWidget();
 
           if (state is AlbumLoaded) {
             return ListView.builder(

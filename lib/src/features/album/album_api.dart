@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 import '../../core/utils.dart';
-import 'album.dart';
+import '../../core/models/album.dart';
 
 class AlbumApi {
   late Dio _dio;

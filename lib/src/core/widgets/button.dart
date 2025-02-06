@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
-
-import '../config/app_colors.dart';
+import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
   const Button({
@@ -22,14 +21,9 @@ class Button extends StatelessWidget {
       data: CupertinoThemeData(
         textTheme: CupertinoTextThemeData(
           textStyle: TextStyle(
-            fontFamily: 'w600',
-            color: AppColors.black,
+            fontFamily: 'w700',
+            color: Colors.black,
           ),
-          // dateTimePickerTextStyle: TextStyle(
-          //   color: Colors.white,
-          //   fontSize: 24,
-          //   fontFamily: 'w400',
-          // ),
         ),
       ),
       child: CupertinoButton(

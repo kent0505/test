@@ -55,7 +55,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
       height: 200,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
@@ -78,7 +78,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
                         ),
                         _Bar(
                           height: value[index + widget.values2.length],
-                          color: AppColors.redAccent,
+                          color: AppColors.accent,
                         ),
                       ],
                     );

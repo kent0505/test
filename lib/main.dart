@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'src/blocs/crud/crud_bloc.dart';
 import 'src/blocs/timer/timer_bloc.dart';
+import 'src/blocs/wheel/wheel_bloc.dart';
 import 'src/core/config/themes.dart';
 import 'src/blocs/album/album_bloc.dart';
 import 'src/blocs/internet/internet_bloc.dart';
@@ -30,7 +32,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => NavbarBloc()),
         BlocProvider(create: (context) => InternetBloc()..add(CheckInternet())),
         BlocProvider(create: (context) => TestBloc()..add(GetTest())),
+        BlocProvider(create: (context) => CrudBloc()..add(GetModels())),
         BlocProvider(create: (context) => TimerBloc()),
+        BlocProvider(create: (context) => WheelBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

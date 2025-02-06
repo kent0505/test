@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../blocs/timer/timer_bloc.dart';
-import '../../../core/widgets/button.dart';
+import '../../../core/config/app_colors.dart';
+import '../../../core/widgets/main_button.dart';
+import '../../../core/widgets/timer_widget.dart';
 
 class NavbarPage4 extends StatelessWidget {
   const NavbarPage4({super.key});
@@ -10,27 +12,28 @@ class NavbarPage4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 100,
+      ),
       children: [
-        SizedBox(height: 100),
-        BlocBuilder<TimerBloc, TimerState>(
-          builder: (context, state) {
-            if (state is TimerStarted) {
-              return Text(
-                state.second.toString(),
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              );
-            }
-
-            return Button(
-              onPressed: () {
-                context.read<TimerBloc>().add(StartTimer(seconds: 50));
-              },
-              child: Text('Start timer'),
-            );
+        TimerWidget(),
+        SizedBox(height: 20),
+        MainButton(
+          title: 'Start',
+          onPressed: () {
+            context.read<TimerBloc>().add(StartTimer(seconds: 20));
           },
         ),
+        SizedBox(height: 20),
+        MainButton(
+          title: 'Stop',
+          color: AppColors.accent,
+          onPressed: () {
+            context.read<TimerBloc>().add(StopTimer());
+          },
+        ),
+        SizedBox(height: 20),
       ],
     );
   }

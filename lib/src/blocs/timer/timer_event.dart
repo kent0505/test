@@ -10,3 +10,9 @@ class StartTimer extends TimerEvent {
 }
 
 class StopTimer extends TimerEvent {}
+
+class TickTimer extends TimerEvent {
+  TickTimer({required this.second});
+
+  final int second;
+}

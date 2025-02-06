@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../core/db/prefs.dart';
 import '../../core/widgets/main_button.dart';
-import '../../core/widgets/custom_scaffold.dart';
 import '../home/pages/home_page.dart';
 
 class OnboardPage extends StatefulWidget {
@@ -25,16 +24,14 @@ class _OnboardPageState extends State<OnboardPage> {
     return '';
   }
 
-  void onNext() async {
+  void onNext() {
     if (index == 2) {
-      await saveBool('onboard', false);
-      if (mounted) {
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => HomePage()),
-          (route) => false,
-        );
-      }
+      saveBool('onboard', false);
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+        (route) => false,
+      );
     } else {
       setState(() {
         index++;
@@ -44,7 +41,7 @@ class _OnboardPageState extends State<OnboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

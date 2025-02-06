@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../blocs/test/test_bloc.dart';
 import '../../../core/widgets/button.dart';
+import '../../../core/widgets/dialog_widget.dart';
 import '../../../core/widgets/no_data.dart';
 
 class NavbarPage2 extends StatelessWidget {
@@ -13,18 +14,30 @@ class NavbarPage2 extends StatelessWidget {
     return BlocBuilder<TestBloc, TestState>(
       builder: (context, state) {
         if (state is TestLoaded) {
-          if (state.models.isEmpty) {
-            return const NoData();
-          }
+          if (state.models.isEmpty) return const NoData();
 
           return ListView.builder(
+            padding: EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 40,
+            ),
             itemCount: state.models.length,
             itemBuilder: (context, index) {
               return Button(
                 onPressed: () {
-                  context
-                      .read<TestBloc>()
-                      .add(DeleteTest(model: state.models[index]));
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return DialogWidget(
+                        title: 'Delete?',
+                        onYes: () {
+                          context
+                              .read<TestBloc>()
+                              .add(DeleteTest(model: state.models[index]));
+                        },
+                      );
+                    },
+                  );
                 },
                 child: Text(
                   state.models[index].title,
@@ -38,6 +51,7 @@ class NavbarPage2 extends StatelessWidget {
             },
           );
         }
+
         return Container();
       },
     );

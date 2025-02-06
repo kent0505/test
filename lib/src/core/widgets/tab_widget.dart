@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../config/app_colors.dart';
-import '../utils.dart';
 
 class TabWidget extends StatefulWidget {
   const TabWidget({
@@ -43,7 +42,7 @@ class _TabWidgetState extends State<TabWidget>
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 20 + getStatusBar(context)),
+        SizedBox(height: 20 + MediaQuery.of(context).viewPadding.top),
         // Container(
         //   height: 46,
         //   // color: Colors.redAccent,

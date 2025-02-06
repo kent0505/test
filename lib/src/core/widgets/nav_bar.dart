@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/widgets/svg_widget.dart';
-import '../../../core/widgets/button.dart';
-import '../../../blocs/navbar/navbar_bloc.dart';
+import 'svg_widget.dart';
+import 'button.dart';
+import '../../blocs/navbar/navbar_bloc.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
@@ -35,13 +35,18 @@ class NavBar extends StatelessWidget {
                 ),
                 _NavBarButton(
                   id: 3,
-                  title: '3',
+                  title: 'Bar chart',
                   active: state is Navbar3,
                 ),
                 _NavBarButton(
                   id: 4,
-                  title: '4',
+                  title: 'Timer',
                   active: state is Navbar4,
+                ),
+                _NavBarButton(
+                  id: 5,
+                  title: 'Wheel',
+                  active: state is Navbar5,
                 ),
               ],
             );
@@ -84,7 +89,7 @@ class _NavBarButton extends StatelessWidget {
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 12,
-                fontFamily: 'w500',
+                fontFamily: 'w700',
               ),
             ),
           ],

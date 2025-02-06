@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../blocs/test/test_bloc.dart';
 import '../../core/db/prefs.dart';
 import '../../core/widgets/loading_widget.dart';
-import '../../core/widgets/custom_scaffold.dart';
 import '../home/pages/home_page.dart';
 import 'onboard_page.dart';
 
@@ -13,7 +12,7 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
+    return Scaffold(
       body: BlocListener<TestBloc, TestState>(
         listener: (context, state) {
           if (state is TestLoaded) {

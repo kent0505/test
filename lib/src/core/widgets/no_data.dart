@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../config/app_colors.dart';
-
 class NoData extends StatelessWidget {
   const NoData({super.key});
 
@@ -11,7 +9,7 @@ class NoData extends StatelessWidget {
       child: Text(
         'No data',
         style: TextStyle(
-          color: AppColors.white,
+          color: Colors.white,
           fontSize: 16,
           fontFamily: 'w700',
         ),
