@@ -2,7 +2,9 @@ import 'dart:developer' as developer;
 
 import 'package:intl/intl.dart';
 
-int getTimestamp() => DateTime.now().millisecondsSinceEpoch ~/ 1000;
+int getTimestamp() {
+  return DateTime.now().millisecondsSinceEpoch ~/ 1000;
+}
 
 String timestampToString(int timestamp) {
   DateTime date = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);

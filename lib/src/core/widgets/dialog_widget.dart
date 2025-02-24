@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../config/app_colors.dart';
+import '../config/constants.dart';
 import 'button.dart';
 
 class DialogWidget extends StatelessWidget {
@@ -15,7 +15,7 @@ class DialogWidget extends StatelessWidget {
   final String title;
   final bool onlyClose;
   final Widget? body;
-  final void Function() onYes;
+  final VoidCallback onYes;
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +81,7 @@ class _Button extends StatelessWidget {
   });
 
   final String title;
-  final void Function() onPressed;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {

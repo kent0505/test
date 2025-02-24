@@ -10,7 +10,7 @@ class Button extends StatelessWidget {
     required this.child,
   });
 
-  final void Function()? onPressed;
+  final VoidCallback? onPressed;
   final double padding;
   final double minSize;
   final Widget child;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'app_colors.dart';
+import 'constants.dart';
 
 final theme = ThemeData(
   useMaterial3: false,
@@ -41,17 +41,3 @@ final theme = ThemeData(
     ),
   ),
 );
-
-// const cupertinoTheme = CupertinoThemeData(
-//   textTheme: CupertinoTextThemeData(
-//     textStyle: TextStyle(
-//       fontFamily: 'w600',
-//       color: Colors.black,
-//     ),
-//     dateTimePickerTextStyle: TextStyle(
-//       color: Colors.white,
-//       fontSize: 24,
-//       fontFamily: 'w600',
-//     ),
-//   ),
-// );

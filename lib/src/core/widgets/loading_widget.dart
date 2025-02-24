@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../config/app_colors.dart';
+import '../config/constants.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({super.key});

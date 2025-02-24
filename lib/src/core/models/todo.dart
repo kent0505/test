@@ -1,8 +1,8 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
 @HiveType(typeId: 0)
-class Model {
-  Model({
+class Todo {
+  Todo({
     required this.id,
     required this.title,
   });
@@ -13,20 +13,20 @@ class Model {
   String title;
 }
 
-class ModelAdapter extends TypeAdapter<Model> {
+class TodoAdapter extends TypeAdapter<Todo> {
   @override
   final typeId = 0;
 
   @override
-  Model read(BinaryReader reader) {
-    return Model(
+  Todo read(BinaryReader reader) {
+    return Todo(
       id: reader.readInt(),
       title: reader.readString(),
     );
   }
 
   @override
-  void write(BinaryWriter writer, Model obj) {
+  void write(BinaryWriter writer, Todo obj) {
     writer.writeInt(obj.id);
     writer.writeString(obj.title);
   }

@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../core/db/db.dart';
-import '../../core/db/prefs.dart';
 import '../../core/models/test_model.dart';
 
 part 'test_event.dart';
@@ -20,31 +19,6 @@ class TestBloc extends Bloc<TestEvent, TestState> {
         DeleteTest() => _deleteTest(event, emit),
       },
     );
-
-    // on<GetTest>((event, emit) async {
-    //   await getModels();
-    //   emit(TestLoaded(models: modelsList));
-    // });
-
-    // on<AddTest>((event, emit) async {
-    //   modelsList.insert(0, event.model);
-    //   await updateModels();
-    //   emit(TestLoaded(models: modelsList));
-    // });
-
-    // on<EditTest>((event, emit) async {
-    //   modelsList.singleWhere((model) => model.id == event.model.id)
-    //     ..title = 'aaa'
-    //     ..title = 'bbb';
-    //   await updateModels();
-    //   emit(TestLoaded(models: modelsList));
-    // });
-
-    // on<DeleteTest>((event, emit) async {
-    //   modelsList.removeWhere((model) => model.id == event.id);
-    //   await updateModels();
-    //   emit(TestLoaded(models: modelsList));
-    // });
   }
 
   void _getTest(
@@ -52,7 +26,6 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     Emitter<TestState> emit,
   ) async {
     try {
-      await getPrefs();
       await _database.init();
       List<TestModel> models = await _database.getModels();
       emit(TestLoaded(models: models));

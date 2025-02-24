@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../config/app_colors.dart';
+import '../config/constants.dart';
 import 'button.dart';
 
 class SwitchButton extends StatelessWidget {
@@ -11,7 +11,7 @@ class SwitchButton extends StatelessWidget {
   });
 
   final bool isActive;
-  final void Function() onPressed;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {

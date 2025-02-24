@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../blocs/timer/timer_bloc.dart';
+import '../../features/timer/bloc/timer_bloc.dart';
 
 class TimerWidget extends StatelessWidget {
   const TimerWidget({
