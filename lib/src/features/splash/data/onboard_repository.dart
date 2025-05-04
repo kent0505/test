@@ -5,8 +5,7 @@ import '../../../core/config/constants.dart';
 abstract interface class OnboardRepository {
   const OnboardRepository();
 
-  bool isOnBoard();
-
+  bool isOnboard();
   Future<void> removeOnboard();
 }
 
@@ -16,7 +15,7 @@ final class OnboardRepositoryImpl implements OnboardRepository {
   final SharedPreferences _prefs;
 
   @override
-  bool isOnBoard() {
+  bool isOnboard() {
     return _prefs.getBool(Keys.onboard) ?? true;
   }
 

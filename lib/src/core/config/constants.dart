@@ -1,4 +1,5 @@
 import 'dart:ui';
+export 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 abstract final class AppColors {
   static const main = Color(0xff69F0AE);
