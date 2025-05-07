@@ -62,7 +62,6 @@ class _NavBarButton extends StatelessWidget {
           : () {
               context.read<NavbarBloc>().add(ChangePage(index: id));
             },
-      padding: 0,
       child: SizedBox(
         width: 62,
         child: Column(

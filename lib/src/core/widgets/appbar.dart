@@ -1,46 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'button.dart';
+import 'svg_widget.dart';
 
-class Appbar extends StatelessWidget {
-  const Appbar({super.key, required this.title});
+class Appbar extends StatelessWidget implements PreferredSizeWidget {
+  const Appbar({
+    super.key,
+    this.title = '',
+    this.right,
+    this.child,
+  });
 
   final String title;
+  final Widget? right;
+  final Widget? child;
+
+  @override
+  Size get preferredSize => const Size.fromHeight(52);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top),
-      child: SizedBox(
-        height: 60,
-        child: Row(
-          children: [
-            SizedBox(width: 16),
-            Button(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Icon(
-                Icons.arrow_back_rounded,
-                color: Colors.white,
-              ),
-            ),
-            Expanded(
-              child: Text(
-                title,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontFamily: 'w700',
-                ),
-              ),
-            ),
-            SizedBox(width: 44),
-            SizedBox(width: 16),
-          ],
+    // final colors = Theme.of(context).extension<MyColors>()!;
+
+    return AppBar(
+      title: child ?? Text(title),
+      leading: Padding(
+        padding: const EdgeInsets.only(left: 16),
+        child: Button(
+          onPressed: () {
+            context.pop();
+          },
+          child: SvgWidget(
+            ' Assets.back',
+            // color: colors.textPrimary,
+          ),
         ),
       ),
+      actions: [right ?? const SizedBox()],
     );
   }
 }

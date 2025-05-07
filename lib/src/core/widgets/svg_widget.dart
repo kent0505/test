@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../utils.dart';
+
 class SvgWidget extends StatelessWidget {
   const SvgWidget(
     this.assetName, {
@@ -30,6 +32,16 @@ class SvgWidget extends StatelessWidget {
               BlendMode.srcIn,
             )
           : null,
+      placeholderBuilder: (context) {
+        return SizedBox(
+          height: height,
+          width: width,
+        );
+      },
+      errorBuilder: (context, error, stackTrace) {
+        logger(error);
+        return const SizedBox();
+      },
     );
   }
 }

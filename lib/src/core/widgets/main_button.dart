@@ -8,6 +8,7 @@ class MainButton extends StatelessWidget {
     super.key,
     required this.title,
     this.width,
+    this.horizontal = 0,
     this.color,
     this.isActive = true,
     required this.onPressed,
@@ -15,6 +16,7 @@ class MainButton extends StatelessWidget {
 
   final String title;
   final double? width;
+  final double horizontal;
   final Color? color;
   final bool isActive;
   final VoidCallback onPressed;
@@ -25,6 +27,7 @@ class MainButton extends StatelessWidget {
       duration: const Duration(milliseconds: 300),
       height: 50,
       width: width,
+      margin: EdgeInsets.symmetric(horizontal: horizontal),
       decoration: BoxDecoration(
         color: color ?? (isActive ? AppColors.main : AppColors.accent),
         borderRadius: BorderRadius.circular(12),
@@ -37,7 +40,7 @@ class MainButton extends StatelessWidget {
             style: TextStyle(
               color: isActive ? Colors.white : Colors.black,
               fontSize: 16,
-              fontFamily: 'w700',
+              fontFamily: AppFonts.w700,
             ),
           ),
         ),

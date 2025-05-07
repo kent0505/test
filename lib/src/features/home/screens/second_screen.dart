@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/widgets/main_button.dart';
-import '../../barchart/screens/barchart_screen.dart';
-import '../../timer/screens/timer_screen.dart';
-import '../../wheel/screens/wheel_screen.dart.dart';
+import '../../todo/screens/todos_screen.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({super.key});
@@ -18,30 +17,27 @@ class SecondScreen extends StatelessWidget {
       children: [
         MainButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => BarchartScreen()),
-            );
+            context.push(TodosScreen.routePath);
+          },
+          title: 'Barchart',
+        ),
+        MainButton(
+          onPressed: () {
+            context.push(TodosScreen.routePath);
           },
           title: 'Barchart',
         ),
         const SizedBox(height: 20),
         MainButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => TimerScreen()),
-            );
+            context.push(TodosScreen.routePath);
           },
           title: 'Timer',
         ),
         const SizedBox(height: 20),
         MainButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => WheelScreen()),
-            );
+            context.push(TodosScreen.routePath);
           },
           title: 'Wheel',
         ),

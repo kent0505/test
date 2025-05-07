@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 70),
+              padding: const EdgeInsets.only(bottom: 70),
               child: BlocConsumer<NavbarBloc, NavbarState>(
                 listener: (context, state) {
                   logger(state.runtimeType);

@@ -1,5 +1,5 @@
-class TestModel {
-  TestModel({
+class Todo {
+  Todo({
     this.id = 0,
     required this.title,
   });
@@ -14,8 +14,8 @@ class TestModel {
     };
   }
 
-  factory TestModel.fromMap(Map<String, dynamic> map) {
-    return TestModel(
+  factory Todo.fromMap(Map<String, dynamic> map) {
+    return Todo(
       id: map['id'],
       title: map['title'],
     );

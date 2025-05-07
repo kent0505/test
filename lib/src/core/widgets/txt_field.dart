@@ -21,34 +21,25 @@ class TxtField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      decoration: BoxDecoration(
-        color: Colors.grey[800],
-        borderRadius: BorderRadius.circular(12),
+    return TextField(
+      controller: controller,
+      keyboardType: number ? TextInputType.number : null,
+      readOnly: readOnly,
+      inputFormatters: [
+        LengthLimitingTextInputFormatter(50),
+        if (number) FilteringTextInputFormatter.digitsOnly,
+      ],
+      textCapitalization: TextCapitalization.sentences,
+      style: TextStyle(
+        color: Colors.white,
+        fontFamily: 'w600',
       ),
-      child: Center(
-        child: TextField(
-          controller: controller,
-          keyboardType: number ? TextInputType.number : null,
-          readOnly: readOnly,
-          inputFormatters: [
-            LengthLimitingTextInputFormatter(50),
-            if (number) FilteringTextInputFormatter.digitsOnly,
-          ],
-          textCapitalization: TextCapitalization.sentences,
-          style: TextStyle(
-            color: Colors.white,
-            fontFamily: 'w600',
-          ),
-          decoration: InputDecoration(hintText: hintText),
-          onTapOutside: (event) {
-            FocusManager.instance.primaryFocus?.unfocus();
-          },
-          onChanged: onChanged,
-          onTap: onTap,
-        ),
-      ),
+      decoration: InputDecoration(hintText: hintText),
+      onTapOutside: (event) {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      onChanged: onChanged,
+      onTap: onTap,
     );
   }
 }

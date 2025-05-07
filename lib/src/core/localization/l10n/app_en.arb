@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
 
-    "test": "Test",
-    "@test": {}
+    "noData":  "No data",
+    "@noData": {}
 }

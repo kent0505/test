@@ -86,7 +86,6 @@ class _Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Button(
-      padding: 0,
       onPressed: onPressed,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

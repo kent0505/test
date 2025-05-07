@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/home/screens/home_screen.dart';
 import '../../features/splash/screens/onboard_screen.dart';
 import '../../features/splash/screens/splash_screen.dart';
+import '../../features/todo/screens/todos_screen.dart';
 
 final routerConfig = GoRouter(
   initialLocation: '/',
@@ -18,6 +19,12 @@ final routerConfig = GoRouter(
     GoRoute(
       path: HomeScreen.routePath,
       builder: (context, state) => const HomeScreen(),
+    ),
+
+    // TODOS
+    GoRoute(
+      path: TodosScreen.routePath,
+      builder: (context, state) => const TodosScreen(),
     ),
   ],
 );
